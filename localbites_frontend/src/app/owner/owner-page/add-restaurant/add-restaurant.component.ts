@@ -1,0 +1,74 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ListingsService } from '../../../listings.service';
+import { Restaurant } from '../../../shared/models/Restaurant';
+@Component({
+  selector: 'app-add-restaurant',
+  templateUrl: './add-restaurant.component.html',
+  styleUrls: ['./add-restaurant.component.css'] 
+})
+export class AddRestaurantComponent implements OnInit {
+  restaurantForm: FormGroup;
+  user_id: string | null = '';
+  user_id_num: number = 0;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private restaurantService: ListingsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    // Initialize the form
+    this.restaurantForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      location: ['', Validators.required],
+      tags: [''],   // add commas to seperat
+      stars: [0.0, [Validators.required, Validators.min(1), Validators.max(5)]], // default value for decimal(3,1) field
+      imageURL: [''],
+      zip_code: ['']
+    });
+  }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.user_id = params.get('user_id');
+      // if (this.user_id) {
+      //   this.restaurantsService.getUserSpecificRestaurantRoute(this.user_id).subscribe(restaurants => {
+      //     this.restaurants = restaurants;
+      //   });
+      // }
+      // Convert user_id from string | null to number
+      this.user_id_num = this.user_id ? parseInt(this.user_id, 10) : 0; // Assuming default value of 0 if user_id is null
+      console.log("something: " + this.user_id);
+    });
+  }
+
+  onSubmit(): void {
+    // Check if form is valid , if it is take all the inputs from form and perfom post request. 
+    if (this.restaurantForm.valid) {
+      this.restaurantService.addRestaurantRoute(
+        this.restaurantForm.value.name,
+        this.restaurantForm.value.location,
+        this.restaurantForm.value.tags,
+        this.restaurantForm.value.stars,
+        this.restaurantForm.value.imageURL,
+        this.restaurantForm.value.zip_code,
+        this.user_id_num
+      ).subscribe({
+        next: (res) => {
+          console.log('Restaurant added successfully!', res);
+          this.router.navigate(['/ownerPage', this.user_id, 'addrestaurant', res.id, 'prompt_add']); // not working, idk if i even have this url in routing module, but data update are working fine.
+          // ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add
+        },
+        error: (err) => {
+          console.error('Error adding restaurant: ', err);
+        }
+      });
+      
+      
+    } else {
+      console.error('Form is not valid');
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.input-restaurant-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 30px;
+    background-color: lightgrey;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.input-restaurant-details input[type="text"] {
+    padding: 10px;
+    width: 500px;
+    height: 50px;
+    margin-bottom: 10px; /* Add spacing between input fields */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+.menu-item input[type="text"] {
+    width: calc(50% - 5px); /* Adjust width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+

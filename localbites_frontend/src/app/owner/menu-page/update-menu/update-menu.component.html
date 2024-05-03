@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<app-owner-task-bar></app-owner-task-bar>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Menu Item Information</title>
+    <style>
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: white;
+        }
+        input[type="text"], input[type="number"], select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Same as previous ones data binding + name of form is menuForm -->
+
+    <div class="container" *ngIf="menuForm">
+        <h2>Update Your Menu Item's Information Below</h2>
+        <form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+            <label for="itemName">Item Name</label>
+            <input id="itemName" type="text" formControlName="itemName" placeholder="Enter Menu Item Name...">
+    
+            <label for="itemPrice">Price</label>
+            <input id="itemPrice" type="number" formControlName="itemPrice" placeholder="Enter Price..." min="0">
+    
+            <button type="submit" [disabled]="!menuForm.valid">Update</button>
+            
+        </form>
+    </div>
+    
+    
+    
+</body>
+</html>

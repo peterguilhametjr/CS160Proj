@@ -1,0 +1,107 @@
+body {
+  background-color: #09bfc539;
+}
+
+.banner
+{
+    background-image: url('../../assets/images/Decoration/backk.jpeg');
+    height: 500px;
+    background-position: center top;
+    background-size: cover;
+}
+
+.content{
+    top:30%;
+    left:30%;
+    position:absolute;
+}
+
+.content h1{
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+   
+} 
+
+.rectangle{
+    width:200px;
+    height:100px;
+    background:rgb(7, 7, 16);
+}
+
+.content a
+{
+    text-decoration: none;
+    background-color: #fff;
+    color: var(--secondary-color);
+    padding:8px 12px;
+}
+
+.routes{
+    margin-bottom: 30px;
+}
+
+
+.routes2 {
+    display: grid;
+    justify-content: center;
+    align-items: stretch;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
+    background-color: #09bfc539;
+    padding: 1px;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+  }
+  
+  .feature1 img{
+    height: 150px;
+    width:150px;
+  }
+
+  .feature2 img{
+    height: 150px;
+    width:150px;
+  }
+
+  .feature3 img{
+    height: 150px;
+    width:150px;
+  }
+
+  .routes2 > div {
+    border-bottom: 10px solid rgba(194, 35, 43, 0.289);
+    border-right: 10px solid rgb(217, 158, 158);
+    border-left: 10px solid rgb(217, 158, 158);
+    border-top: 10px solid rgb(217, 158, 158);
+    border: 6px dashed rgba(255, 255, 255, 0.861);
+
+    padding: 20px;
+  }
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #09bfc5; /* Teal border */
+  border-radius: 5px;
+  background-color: #09bfc5;  /*Transparent background*/
+  color: white; /* Teal text color */
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  bottom: 100px;
+}
+
+.button:hover {
+  background-color: transparent; /* Teal background on hover */
+  color: #09bfc5; /* White text color on hover */
+}
+
+
+
+

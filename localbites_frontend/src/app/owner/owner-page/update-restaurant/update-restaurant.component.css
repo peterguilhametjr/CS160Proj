@@ -1,0 +1,30 @@
+body {
+    padding-top: 80px;
+    min-height: 100vh;
+    background-image: url('../../../../assets/images/Decoration/ownerbackground.jpg');
+    background-size: cover;
+}
+
+.container {
+    text-align: center;
+}
+
+.restaurant-updt {
+    padding-top: 80px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.updt-btn {
+    padding: 8px 12px;
+    height: 50px;
+    background-color: #1F456E;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 5px; /* Add margin to the button */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+}

@@ -1,0 +1,35 @@
+<app-owner-task-bar></app-owner-task-bar>
+<div class="owner-page">
+    <div class="restaurant-list">
+        <h2 class="owner-head">Here are your restaurants!</h2>
+        <li *ngFor="let restaurant of restaurants" class="restaurant-container">
+            <a>
+                <div class="restaurant_name">
+                    {{restaurant.name}}: {{restaurant.id}}
+                </div>
+                <button class="update-btn" [routerLink]="['/ownerPage/updaterestaurant', restaurant.id]">
+                    Update
+                </button>
+                <button (click)="onDeleteClicked(restaurant.id.toString())" class="dlt-btn">
+                    Delete
+                </button>
+                <button class="menu-btn" [routerLink]="['/ownerPage/menu/', restaurant.id]">
+                    Menu
+                </button>
+
+                <div class="footer">
+                    <div class="location">
+                        {{restaurant.location}}    
+                    </div>
+                </div>
+            </a>
+        </li>
+    </div>
+    <button class="add-restaurant-btn" (click)="navigateToAddRestaurant()">
+        Add Restaurant
+    </button>
+    <button class="add-menu-btn" [routerLink]="['/ownerPage/menuadd']">
+        Add Menu
+    </button>   
+</div>
+

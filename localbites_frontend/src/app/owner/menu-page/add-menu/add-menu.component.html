@@ -1,0 +1,19 @@
+<app-owner-task-bar></app-owner-task-bar>
+<div class="container">
+    <h2 class="add-header">Add New Menu Item</h2>
+    <form [formGroup]="menuForm" (ngSubmit)="onSubmit()" class="menu-form">
+      <div formArrayName="menus">
+        <div *ngFor="let menu of menuArray.controls; let i = index" [formGroupName]="i">
+          <label for="itemName">Item Name</label>
+          <input id="itemName" type="text" formControlName="itemName" placeholder="Enter Menu Item Name...">
+
+          <label for="itemPrice">Price</label>
+          <input id="itemPrice" type="number" formControlName="itemPrice" placeholder="Enter Price..." min="0">
+
+          <button type="button" (click)="removeMenuItem(i)">Remove</button>
+        </div>
+      </div>
+      <button type="button" (click)="addMenuItem()">Add More Menu Item</button>
+      <button type="submit" [disabled]="!menuForm.valid" class="submit-btn">Submit</button>
+    </form>
+  </div>

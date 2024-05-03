@@ -1,0 +1,40 @@
+header{
+    background: #1F456E;
+    padding: 0;
+    border-bottom: 1px solid lightskyblue;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+}
+
+a{
+    color: white
+}
+
+a:hover{
+    background: blue;
+    color: white;
+}
+
+.container{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+a.logo{
+    font-weight: bold;
+    padding: 1em;
+    color: black;
+    font-size: large;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 1em;
+    display: inline-block;
+}

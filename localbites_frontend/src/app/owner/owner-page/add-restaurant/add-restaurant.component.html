@@ -1,0 +1,28 @@
+<app-owner-task-bar></app-owner-task-bar>
+
+<div class="container">
+    <h2 class="restaurant-reg">Please Enter the Following Information</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="restaurantForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name" required><br><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" formControlName="location" required><br><br>
+
+        <label for="tags">Tags:</label>
+        <input type="text" id="tags" formControlName="tags"><br><br>
+
+
+
+        <label for="stars">Stars:</label>
+        <input type="number" id="stars" formControlName="stars" min="1" max="5" required><br><br>
+
+        <label for="imageURL">Image URL:</label>
+        <input type="text" id="imageURL" formControlName="imageURL"><br><br>
+
+        <label for="zip_code">zip_code:</label>
+        <input type="text" id="zip_code" formControlName="zip_code"><br><br>
+
+        <button type="submit">Register</button>   
+    </form>
+</div>

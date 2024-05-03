@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="offers-page">
+    <div class="current">
+        <h2>Current Offers</h2>
+    </div>
+    <ul>
+        <li *ngFor="let offer of offers">
+            <a>
+                <div class="user_name">
+                    {{offer.user_name}}
+                </div>
+                <div class="restaurant">
+                    {{offer.restaurant}}
+                </div>
+                <button class="jump-in-btn">
+                    Jump In!
+                </button>
+                <div class="footer">
+                    <div class="discount">
+                        {{offer.discount}}% discount  
+                    </div>
+                    <div class="location">
+                        {{offer.location}}    
+                    </div>
+                    <div class="zipcode">
+                        {{offer.zipcode}} -> zipcode
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

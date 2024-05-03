@@ -1,0 +1,85 @@
+/* .container {
+    padding-top: 80px;
+    background-image: url('../../../../assets/images/Decoration/ownerbackground.jpg');
+    background-size: cover;
+} */
+
+.add-header {
+    background-color: #1F456E; /* Sky blue background color */
+    padding: 10px; /* Optional: Add padding to increase spacing around the text */
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.container {
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    background-image: url('../../../../assets/images/Decoration/ownerbackground.jpg');
+    background-size: cover;
+}
+
+
+.menu-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* .container h2 {
+    text-align: center;
+    color: #1F456E; /* Dark blue heading color 
+} 
+*/
+
+.container label {
+    color: #333; /* Dark gray label color */
+}
+
+.container input[type="text"],
+.container input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.container button {
+    background-color: #1F456E; /* Dark blue button background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.container button:hover {
+    background-color: #0d2d4a; /* Darker blue on hover */
+}
+
+.container button[type="submit"]:disabled {
+    background-color: green; /* Disable button color */
+    cursor: not-allowed;
+
+}
+
+.submit-btn {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px; /* Add padding to the button */
+    margin-top: 20px; /* Move the button down */
+    display: block; /* Make the button a block-level element to center it */
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto; /* Center the button horizontally */
+}
+

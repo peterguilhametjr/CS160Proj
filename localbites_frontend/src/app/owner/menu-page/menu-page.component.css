@@ -1,0 +1,50 @@
+.menuPage {
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../../assets/images/Decoration/ownerbackground.jpg');
+    background-size: cover;
+}
+
+.menu-item {
+    background-color: #1F456E; /* Dark blue background */
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+}
+
+.menu-item h2 {
+    margin-bottom: 10px;
+}
+
+.menu-item p {
+    margin-bottom: 5px;
+}
+
+.menu-item button {
+    background-color: #0d2d4a; /* Darker blue button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.menu-item button:hover {
+    background-color: #1F456E; /* Dark blue on hover */
+}
+
+.no-menu {
+    border: 2px solid #1F456E; /* Dark blue border */
+    background-color: #1F456E; /* Light gray background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+    color: white; /* Dark gray text color */
+}

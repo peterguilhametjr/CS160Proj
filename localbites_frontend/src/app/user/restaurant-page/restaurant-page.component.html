@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="container" *ngIf="restaurant">
+    <div class="image" [style.backgroundImage]="'url(' + restaurant.imageURL + ')'"></div>
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{restaurant.name}}
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="testing">
+    hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestias quis voluptas natus tempora dolore quos sit eligendi libero, distinctio placeat totam necessitatibus quisquam eveniet hic quidem sed facere obcaecati?
+    <button class="Menu-btn" [routerLink]="['/restaurant', restaurant?.id, 'menu']">
+        Menu
+    </button>  
+</div>
+

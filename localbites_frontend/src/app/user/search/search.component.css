@@ -1,0 +1,84 @@
+/* .search-page{
+    padding-top: 80px;
+} */
+
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+li a{
+    height: 20rem;
+    width: 20rem;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: darkgreen;
+}
+
+li a:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+img {
+    width: 325px;
+    height: 200px;
+}
+
+.whole-page {
+    background-color: #c9d6ff;
+    background-image: url("/assets/images/Decoration/loginback.jpeg");
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+    height: 100vh;
+}
+
+.restaurants {
+    background-color: white;
+}
+
+
+
+.recommend {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content{
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+    left: 1rem;
+    top: 0.7rem;
+}
+
+.name{
+    font-weight: bold;
+}
+
+.favorite{
+    position: absolute;
+    top: 0rem;
+    right: 2rem;
+    font-size: 1.2rem;
+}
+
+.favorite.not{
+    color: white;
+}
+
+.footer{
+    position: absolute;
+    font-size: 0.8rem;
+    top: 3rem;
+}
