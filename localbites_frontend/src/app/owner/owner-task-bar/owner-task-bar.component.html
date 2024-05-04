@@ -4,7 +4,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href= "#" (click)="navigateToHomePage()">Your Restaurants</a>
+                    <a [routerLink]="['/ownerPage', user_id]">Your Restaurants</a>
                     <a href = "#" routerLink="">Logout</a>
                 </li>
             </ul>

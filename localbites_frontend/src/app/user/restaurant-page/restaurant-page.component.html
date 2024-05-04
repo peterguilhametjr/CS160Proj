@@ -4,16 +4,26 @@
     <div class="details">
         <div class="header">
             <span class="name">
-                {{restaurant.name}}
+                {{ restaurant.name }}
             </span>
         </div>
     </div>
+
+    <!-- Items Listing -->
+
+    <!-- <div class="menu" *ngFor="let item of restaurant?.items">
+        <p>Item Name: {{ item.name }}</p>
+        <p>Item Price: {{ item.price }}</p>
+    </div> -->
 </div>
 
-<div class="testing">
-    hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestias quis voluptas natus tempora dolore quos sit eligendi libero, distinctio placeat totam necessitatibus quisquam eveniet hic quidem sed facere obcaecati?
-    <button class="Menu-btn" [routerLink]="['/restaurant', restaurant?.id, 'menu']">
-        Menu
-    </button>  
+<div class="menu" *ngIf="restaurant">
+    <div *ngIf="restaurant.items && restaurant.items.length > 0">
+        <h3>Menu Items</h3>
+        <ul>
+            <li *ngFor="let item of restaurant.items">
+                {{ item.name }} - ${{ item.price }}
+            </li>
+        </ul>
+    </div>
 </div>
-

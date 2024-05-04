@@ -6,12 +6,13 @@ export class Restaurant{
     imageURL!:string;
     location!:string;
     zip_code!:string;
+    items?: Item[];  // Include an array of Menu items
 }
 
-// export class Restaurant_owner{ // idont think i have used it anywhere after fixing post request but am not deleting it until i zip it first.
-//     name!:string;
-//     tags?:string[];
-//     stars!:number;
-//     imageURL!:string;
-//     location!:string;
-// }
+
+
+export class Item {
+  item_id!: number;
+  name!: string;
+  price!: number;
+}

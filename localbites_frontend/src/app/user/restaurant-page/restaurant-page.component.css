@@ -1,7 +1,7 @@
 .container {
     position: relative;
     width: 100%;
-    height: 400px; /* Set the desired height */
+    height: 400px; 
     overflow: hidden;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -11,7 +11,7 @@
     width: 100%;
     height: 100%;
     top: 0;
-    background-size: cover; /* Cover the entire container */
+    background-size: cover; 
     background-position: center;
     background-position-y: 50rem;
 }
@@ -22,8 +22,8 @@
     left: 0;
     width: 100%;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for details */
-    color: white; /* Text color */
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
 }
 
 .header {
@@ -31,6 +31,6 @@
     font-weight: bold;
 }
 
-.testing {
+.menu {
     font-size: 25px;
 }

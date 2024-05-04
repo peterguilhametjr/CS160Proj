@@ -18,6 +18,15 @@ export class RestaurantPageComponent implements OnInit {
     if (id) {
       this.restaurantsService.getUserRestaurantsByIdRoute(id).subscribe(restaurant => {
         this.restaurant = restaurant;    
+        console.log("menu: " + restaurant.items)
+
+        if (restaurant.items) {
+          restaurant.items.forEach(item => {
+            console.log("Item name: " + item.name);
+            console.log("Item price: " + item.price);
+            // Access other properties as needed
+          });
+        }
       });
     }
   }
