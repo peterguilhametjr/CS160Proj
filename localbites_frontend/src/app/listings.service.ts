@@ -69,6 +69,8 @@ export class ListingsService {
   getUserRestaurantsByIdRoute(id: string): Observable<Restaurant> { //done no need for [] cuz we only using one column that's id only.
     return this.http.get<Restaurant>(`/api/restaurant/${id}`);
   }
+
+  // getMenuItemsRoute(): Observable<
   
   //done
   getUserRestaurantsMenuRoute(id: string): Observable<Menu[]> {
@@ -115,7 +117,7 @@ export class ListingsService {
   // wokrking with only restaurants not menu, maybe cuz of itemsdetails  ----- done
   addMenuRoute(user_id: string, id: string, name: string, price: number): Observable<Restaurant> {
     const body = { name, price }; // Removed 'Number' as it seems unnecessary
-    return this.http.post<Restaurant>(`/api/ownerpage/addrestaurant/${id}/addmenu`, body, this.httpOptions);
+    return this.http.post<Restaurant>(`/api/ownerpage/addrestaurant/${id}/menuadd`, body, this.httpOptions);
   }
   // /api/ownerpage/{user_id}/addrestaurant/{restaurant_id}/prompt_add/addmenu
   // {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add/addmenu', component:AddMenuComponent},

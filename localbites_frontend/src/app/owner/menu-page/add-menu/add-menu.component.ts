@@ -24,7 +24,7 @@ export class AddMenuComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForm();
     this.user_id = this.route.snapshot.paramMap.get('user_id'); // Retrieve id from route parameters
-    this.restaurant_id = this.route.snapshot.paramMap.get('restaurant_id')
+    this.restaurant_id = this.route.snapshot.paramMap.get('id')
   }
 
   initializeForm(): void {
@@ -69,6 +69,7 @@ export class AddMenuComponent implements OnInit {
         });
       });
     } else {
+      console.log('restaurant_id: ' + this.restaurant_id)
       console.error('Form is not valid or id is missing');
     }
   }

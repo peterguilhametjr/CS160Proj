@@ -10,6 +10,7 @@ import { ListingsService } from '../../../listings.service';
 export class UpdateRestaurantComponent implements OnInit {
   restaurantForm!: FormGroup;
   restaurantId!: string;
+  userId!: string;
 
   constructor(
     private router: Router,
@@ -19,6 +20,7 @@ export class UpdateRestaurantComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.userId = this.route.snapshot.paramMap.get('user_id')!;
     this.restaurantId = this.route.snapshot.paramMap.get('id')!;  //give id from url to method loadrestaurant
     this.loadRestaurant();
   }
@@ -43,9 +45,9 @@ export class UpdateRestaurantComponent implements OnInit {
     );
   }
   
-  navigateToOwnerPage(): void {
-    this.router.navigateByUrl('/ownerPage'); // Navigate to ownerPage URL
-  }
+  // navigateToOwnerPage(): void {
+  //   this.router.navigate(['/ownerPage', this.userId]); // Navigate to ownerPage URL
+  // }
 
   onSubmit(): void {
     if (this.restaurantForm.valid) {
@@ -61,8 +63,11 @@ export class UpdateRestaurantComponent implements OnInit {
       ).subscribe({
         next: (updatedInfo) => {
           console.log('Update successful', updatedInfo);  
-          this.router.navigateByUrl('/ownerPage');
+          this.router.navigate(['/ownerPage', this.userId, 'updaterestaurant', this.restaurantId, 'menupage']);
+            // {path:'ownerPage/:user_id/updaterestaurant/:id/menupage', component:MenuPageComponent},
+            // {path:'ownerPage/:user_id/updaterestaurant/:id/menupage/:menuid', component:UpdateMenuComponent},
         },
+        // ownerPage/:user_id/updaterestaurant/:restaurant_id/prompt_update/updatemenu
         error: (updateError) => {
           console.error('Failed to update restaurant', updateError);
         }

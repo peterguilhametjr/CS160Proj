@@ -12,6 +12,7 @@ export class MenuPageComponent {
 
   Menus: Menu[] = [];
   id: string | null = null; // Declare id variable
+  user_id: string | null = null;
 
   constructor(
     private menuService: ListingsService,
@@ -21,6 +22,7 @@ export class MenuPageComponent {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id'); // Assign id from URL to the class variable
+    this.user_id = this.route.snapshot.paramMap.get('user_id'); // Assign id from URL to the class variable
     if (this.id) {
       this.menuService.getRestaurantsMenuRoute(this.id).subscribe(
         (menus: Menu[]) => {
@@ -44,5 +46,42 @@ export class MenuPageComponent {
         console.error('Failed to delete menu item:', error);
       }
     );
+  }
+
+  navigateToUpdate(item_id: number): void {
+    if (this.id && this.user_id && item_id) {
+      this.router.navigate(['/ownerPage', this.user_id, 'updaterestaurant', this.id, 'menupage', item_id])
+      
+      console.log("work: " + this.user_id);
+    }
+    else {
+      console.error("User ID not available")
+    }
+  }
+
+  navigateToAddMenu(): void {
+    if (this.id && this.user_id) {
+      this.router.navigate(['/ownerPage', this.user_id, 'addrestaurant', this.id, 'addmenu'])
+      
+      console.log("work: " + this.user_id);
+    }
+    else {
+      console.error("User ID not available")
+    }
+  }
+
+  // ownerPage/:user_id/addrestaurant/:id/addmenu
+
+  // {path:'ownerPage/:user_id/updaterestaurant/:id/menupage', component:MenuPageComponent},
+  // {path:'ownerPage/:user_id/updaterestaurant/:id/menupage/:menuid', component:UpdateMenuComponent},
+  navigateToUpdatePage(id: number): void {
+    if (this.id) {
+      this.router.navigate(['/ownerPage', this.user_id, 'updaterestaurant', id])
+      
+      console.log("work: " + this.user_id);
+    }
+    else {
+      console.error("User ID not available")
+    }
   }
 }

@@ -39,12 +39,13 @@ const routes: Routes = [
   {path:'ownerPage/:user_id', component:OwnerPageComponent}, // need to add id
   {path:'driverPage', component:DriverPageComponent},
 
-  {path:'ownerPage/:user_id/updaterestaurant', component:UpdateRestaurantComponent},
-  {path:'ownerPage/:user_id/updaterestaurant/:restaurant_id/prompt_update', component:PromptUpdatePageComponent},
-  {path:'ownerPage/:user_id/updaterestaurant/:restaurant_id/prompt_update/updatemenu', component:UpdateMenuComponent},
+  {path:'ownerPage/:user_id/updaterestaurant/:id', component:UpdateRestaurantComponent},
+  // {path:'ownerPage/:user_id/updaterestaurant/:restaurant_id/menu_page', component:PromptUpdatePageComponent},
+  {path:'ownerPage/:user_id/updaterestaurant/:id/menupage', component:MenuPageComponent},
+  {path:'ownerPage/:user_id/updaterestaurant/:id/menupage/:menuid', component:UpdateMenuComponent},
 
   {path:'ownerPage/:user_id/addrestaurant', component:AddRestaurantComponent}, // need to add id
-  {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add', component: PromptAddPageComponent},
+  // {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add', component: PromptAddPageComponent},
   {path:'ownerPage/:user_id/addrestaurant/:id/addmenu', component:AddMenuComponent},
 
   // {path:'restaurant/:id/menu', component:UserMenuComponent}

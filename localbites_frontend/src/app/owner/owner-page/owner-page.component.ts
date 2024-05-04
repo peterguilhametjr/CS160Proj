@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Restaurant } from '../../shared/models/Restaurant';
 import { ListingsService } from '../../listings.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { UserService } from '../../services/UserService';
 
 @Component({
   selector: 'app-owner-page',
@@ -20,7 +20,8 @@ export class OwnerPageComponent implements OnInit {
   constructor(
     private restaurantsService: ListingsService,
     private route: ActivatedRoute,
-    private router: Router // Inject Router
+    private router: Router, // Inject Router
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class OwnerPageComponent implements OnInit {
         this.restaurantsService.getUserSpecificRestaurantRoute(this.user_id).subscribe(restaurants => {
           this.restaurants = restaurants;
         });
+        this.userService.setUserId(this.user_id);
       }
       // console.log(this.user_id);
     });
@@ -50,9 +52,10 @@ export class OwnerPageComponent implements OnInit {
 
 
 
-  navigateToUpdatePage(): void {
+  navigateToUpdatePage(id: number): void {
     if (this.user_id) {
-      this.router.navigate(['/ownerPage', this.user_id, 'updaterestaurant'])
+      this.router.navigate(['/ownerPage', this.user_id, 'updaterestaurant', id])
+      
       console.log("work: " + this.user_id);
     }
     else {

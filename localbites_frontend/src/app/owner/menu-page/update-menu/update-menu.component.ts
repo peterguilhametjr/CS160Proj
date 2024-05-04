@@ -11,6 +11,8 @@ import { Menu } from '../../../shared/models/Menu';
 })
 export class UpdateMenuComponent implements OnInit {
   menuForm!: FormGroup;  // Using the definite assignment assertion '!' since it will be initialized in ngOnInit
+  id!: string;
+  user_id!: string;
 
   constructor(
     private router: Router,
@@ -21,11 +23,12 @@ export class UpdateMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();  // Ensure form is initialized here
-    const id = this.route.snapshot.paramMap.get('id');
-    const itemId = this.route.snapshot.paramMap.get('item_id');
+    this.id = this.route.snapshot.paramMap.get('id')!;
+    this.user_id = this.route.snapshot.paramMap.get('user_id')!;
+    const itemId = this.route.snapshot.paramMap.get('menuid');
 
-    if (id && itemId) {  // Checking that both id and itemId are not null
-      this.loadMenuItem(id, itemId);
+    if (this.id && itemId) {  // Checking that both id and itemId are not null
+      this.loadMenuItem(this.id, itemId);
     } else {
       console.error('ID or Item ID is missing');
       // Optionally redirect the user or display an error message
@@ -64,13 +67,14 @@ export class UpdateMenuComponent implements OnInit {
     if (this.menuForm.valid) {
       const { itemName, itemPrice } = this.menuForm.value; // update only name and price and take 2 ids from url only
       const id = this.route.snapshot.paramMap.get('id')!;
-      const itemId = this.route.snapshot.paramMap.get('item_id')!;
+      const itemId = this.route.snapshot.paramMap.get('menuid')!;
       console.log(`Submitting update for ID: ${id}, Item ID: ${itemId}, Name: ${itemName}, Price: ${itemPrice}`);
 
       this.listingsService.updateMenuRoute(id, itemId, itemName, itemPrice).subscribe({
         next: (updatedMenu) => {
           console.log('Update successful', updatedMenu);
-          this.router.navigateByUrl(`ownerPage/menu/${id}`); // routerlink issue, maybe url not valid or so
+          this.router.navigateByUrl(`ownerPage/${this.user_id}/updaterestaurant/${this.id}/menupage`); // routerlink issue, maybe url not valid or so
+          // ownerPage/:user_id/updaterestaurant/:id/menupage
         },
         error: (updateError) => {
           console.error('Failed to update menu item', updateError);
@@ -82,3 +86,5 @@ export class UpdateMenuComponent implements OnInit {
     }
   }
 }
+
+

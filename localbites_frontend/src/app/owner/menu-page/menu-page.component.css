@@ -1,4 +1,8 @@
 .menuPage {
+    padding-top: 80px;
+}
+
+/* .menuPage {
     min-height: 100vh;
     padding-top: 80px;
     display: flex;
@@ -10,12 +14,12 @@
 }
 
 .menu-item {
-    background-color: #1F456E; /* Dark blue background */
+    background-color: #1F456E; 
     color: white;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .menu-item h2 {
@@ -27,7 +31,7 @@
 }
 
 .menu-item button {
-    background-color: #0d2d4a; /* Darker blue button background */
+    background-color: #0d2d4a; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -37,14 +41,14 @@
 }
 
 .menu-item button:hover {
-    background-color: #1F456E; /* Dark blue on hover */
+    background-color: #1F456E; 
 }
 
 .no-menu {
-    border: 2px solid #1F456E; /* Dark blue border */
-    background-color: #1F456E; /* Light gray background */
+    border: 2px solid #1F456E; 
+    background-color: #1F456E; 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
-    color: white; /* Dark gray text color */
-}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    color: white; 
+} */

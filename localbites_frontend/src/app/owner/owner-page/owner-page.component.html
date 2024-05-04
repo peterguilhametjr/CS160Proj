@@ -7,7 +7,7 @@
                 <div class="restaurant_name">
                     {{restaurant.name}}: {{restaurant.id}}
                 </div>
-                <button (click)="navigateToUpdatePage()" class="update-btn">
+                <button (click)="navigateToUpdatePage(restaurant.id)" class="update-btn">
                     Update
                 </button>
                 <button (click)="onDeleteClicked(restaurant.id.toString())" class="dlt-btn">
@@ -28,8 +28,8 @@
     <button class="add-restaurant-btn" (click)="navigateToAddRestaurant()">
         Add Restaurant
     </button>
-    <button class="add-menu-btn" [routerLink]="['/ownerPage/menuadd']">
+    <!-- <button class="add-menu-btn" [routerLink]="['/ownerPage/menuadd']">
         Add Menu
-    </button>   
+    </button>    -->
 </div>
 

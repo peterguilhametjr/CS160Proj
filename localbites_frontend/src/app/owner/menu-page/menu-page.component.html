@@ -3,15 +3,15 @@
   <div *ngIf="Menus.length > 0; else noMenu">
     <div *ngFor="let menu of Menus" class="menu-item">
       <h2>{{ menu.name }}</h2>
-      <p>Item ID: {{ menu.item_id }}</p>
-      <p>Menu ID: {{ menu.id }}</p>
+      <!-- <p>Item ID: {{ menu.item_id }}</p>
+      <p>Menu ID: {{ menu.id }}</p> -->
       <p>Price: {{ menu.price ? '$' + menu.price : 'Not available' }}</p>
-      <button class="update-btn" [routerLink]="['/ownerPage/menu', menu.id, 'update', menu.item_id]">Update</button>
+      <button (click)="navigateToUpdate(menu.item_id)" class="update-btn">Update</button>
       <button (click)="onDeleteClicked(menu.id.toString(), menu.item_id.toString())">Delete</button>
     </div>
   </div>
   
-  <button class="add-menu-btn" [routerLink]="['/ownerPage', id, 'menuadd']">
+  <button (click)="navigateToAddMenu()" class="add-menu-btn">
     Add Menu
   </button>
 
