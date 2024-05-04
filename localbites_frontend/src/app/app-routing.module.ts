@@ -45,7 +45,7 @@ const routes: Routes = [
 
   {path:'ownerPage/:user_id/addrestaurant', component:AddRestaurantComponent}, // need to add id
   {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add', component: PromptAddPageComponent},
-  {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/addmenu', component:AddMenuComponent},
+  {path:'ownerPage/:user_id/addrestaurant/:id/addmenu', component:AddMenuComponent},
 
   // {path:'restaurant/:id/menu', component:UserMenuComponent}
 

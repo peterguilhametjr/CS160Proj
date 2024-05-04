@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ListingsService } from '../../../listings.service';
 import { Restaurant } from '../../../shared/models/Restaurant';
+
 @Component({
   selector: 'app-add-restaurant',
   templateUrl: './add-restaurant.component.html',
@@ -57,17 +58,33 @@ export class AddRestaurantComponent implements OnInit {
         this.user_id_num
       ).subscribe({
         next: (res) => {
-          console.log('Restaurant added successfully!', res.name);
-          this.router.navigate([`/ownerPage/${this.user_id}/addrestaurant/${res.id}/addmenu`]); // not working, idk if i even have this url in routing module, but data update are working fine.
+          // const num = res.id;
+          // console.log('Restaurant added successfully!', num);
+          // Assuming this is within a component or service where you have access to the RestaurantService
+
+
+          // const rest_id = this.restaurantService.getRestaurantIdRoute(this.user_id_num, res.name, res.location);
+          // console.log('rest_id: ' + rest_id);
           // this.router.navigate([`/searchPage/${res.user_id}`]);
           // ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add
 
           // ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add
+          // console.log('How about this!', num);
         },
         error: (err) => {
           console.error('Error adding restaurant: ', err);
         }
       });
+
+      this.restaurantService.getRestaurantIdRoute(this.user_id_num, this.restaurantForm.value.name, this.restaurantForm.value.location)
+      .subscribe((response: any) => {
+        const id = response.results[0].id;
+        // console.log('Restaurant ID:', id);
+        this.router.navigate([`/ownerPage/${this.user_id}/addrestaurant/${id}/addmenu`]);
+        // Now you have the restaurant ID, you can use it as needed
+      });
+
+
       
       
     } else {

@@ -36,6 +36,8 @@ export class OwnerPageComponent implements OnInit {
     });
   }
 
+  
+
   navigateToAddRestaurant(): void{
     if (this.user_id) {
       this.router.navigate(['/ownerPage', this.user_id, 'addrestaurant'])
@@ -44,9 +46,9 @@ export class OwnerPageComponent implements OnInit {
     else {
       console.error("User ID not available")
     }
-
-
   }
+
+
 
   navigateToUpdatePage(): void {
     if (this.user_id) {

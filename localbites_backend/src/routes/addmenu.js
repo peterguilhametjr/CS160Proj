@@ -3,10 +3,9 @@ import { db } from "../database";
 
 export const addMenuRoute = {
     method: 'POST',
-    path: '/api/ownerpage/{user_id}/addrestaurant/{restaurant_id}/addmenu', // Adjust the route to indicate adding a menu
+    path: '/api/ownerpage/addrestaurant/{id}/menuadd', // Adjust the route to indicate adding a menu
 
-    // {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add/addmenu', component:AddMenuComponent},
-
+    // /api/ownerpage/addrestaurant/${id}/addmenu
     handler: async (req, h) => {
         const { name, price } = req.payload; // Extract id, name, and price from the request payload
         const { id } = req.params; // Extract id from the URL parameters

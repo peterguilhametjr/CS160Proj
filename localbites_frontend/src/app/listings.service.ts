@@ -85,6 +85,10 @@ export class ListingsService {
     const body = { name, location, tags, stars, imageURL, zip_code, user_id };
     return this.http.post<Restaurant>(`/api/ownerpage/addrestaurant`, body, this.httpOptions);
   }
+
+  getRestaurantIdRoute(user_id: number, name: string, location: string): Observable<number> {
+    return this.http.get<number>(`/api/${user_id}/${name}/${location}/getrestaurantid`, this.httpOptions);
+  }
   
   //done we are using id in url so need id to read url
   deleteRestaurantRoute(id: string): Observable<any> {
@@ -109,9 +113,9 @@ export class ListingsService {
   }
 
   // wokrking with only restaurants not menu, maybe cuz of itemsdetails  ----- done
-  addMenuRoute(user_id: string, restaurant_id: string, name: string, price: number): Observable<Restaurant> {
+  addMenuRoute(user_id: string, id: string, name: string, price: number): Observable<Restaurant> {
     const body = { name, price }; // Removed 'Number' as it seems unnecessary
-    return this.http.post<Restaurant>(`/api/ownerpage/${user_id}/addrestaurant/${restaurant_id}/addmenu`, body, this.httpOptions);
+    return this.http.post<Restaurant>(`/api/ownerpage/addrestaurant/${id}/addmenu`, body, this.httpOptions);
   }
   // /api/ownerpage/{user_id}/addrestaurant/{restaurant_id}/prompt_add/addmenu
   // {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add/addmenu', component:AddMenuComponent},

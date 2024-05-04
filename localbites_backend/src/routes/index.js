@@ -17,6 +17,7 @@ import { UserLoginRoute } from "./UserLogin";
 import { RestaurantUserSignupRoute } from "./RestaurantUserSignup";
 import { getUserSpecificRestaurantRoute } from "./getUserSpecificRestaurant";
 import { RestaurantUserLoginRoute } from "./RestaurantUserLogin";
+import { getRestaurantIdRoute } from "./getrestaurantid";
 
 export default [
     getAllRestaurantsRoute,
@@ -37,5 +38,6 @@ export default [
     UserLoginRoute,
     RestaurantUserSignupRoute,
     getUserSpecificRestaurantRoute,
-    RestaurantUserLoginRoute
+    RestaurantUserLoginRoute,
+    getRestaurantIdRoute
 ];
