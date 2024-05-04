@@ -57,8 +57,11 @@ export class AddRestaurantComponent implements OnInit {
         this.user_id_num
       ).subscribe({
         next: (res) => {
-          console.log('Restaurant added successfully!', res);
-          this.router.navigate(['/ownerPage', this.user_id, 'addrestaurant', res.id, 'prompt_add']); // not working, idk if i even have this url in routing module, but data update are working fine.
+          console.log('Restaurant added successfully!', res.name);
+          this.router.navigate([`/ownerPage/${this.user_id}/addrestaurant/${res.id}/addmenu`]); // not working, idk if i even have this url in routing module, but data update are working fine.
+          // this.router.navigate([`/searchPage/${res.user_id}`]);
+          // ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add
+
           // ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add
         },
         error: (err) => {

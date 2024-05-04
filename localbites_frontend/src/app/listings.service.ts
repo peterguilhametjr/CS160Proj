@@ -111,7 +111,7 @@ export class ListingsService {
   // wokrking with only restaurants not menu, maybe cuz of itemsdetails  ----- done
   addMenuRoute(user_id: string, restaurant_id: string, name: string, price: number): Observable<Restaurant> {
     const body = { name, price }; // Removed 'Number' as it seems unnecessary
-    return this.http.post<Restaurant>(`/api/ownerpage/${user_id}/addrestaurant/${restaurant_id}/prompt_add/addmenu`, body, this.httpOptions);
+    return this.http.post<Restaurant>(`/api/ownerpage/${user_id}/addrestaurant/${restaurant_id}/addmenu`, body, this.httpOptions);
   }
   // /api/ownerpage/{user_id}/addrestaurant/{restaurant_id}/prompt_add/addmenu
   // {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add/addmenu', component:AddMenuComponent},

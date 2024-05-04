@@ -7,15 +7,15 @@
                 <div class="restaurant_name">
                     {{restaurant.name}}: {{restaurant.id}}
                 </div>
-                <button class="update-btn" [routerLink]="['/ownerPage/updaterestaurant', restaurant.id]">
+                <button (click)="navigateToUpdatePage()" class="update-btn">
                     Update
                 </button>
                 <button (click)="onDeleteClicked(restaurant.id.toString())" class="dlt-btn">
                     Delete
                 </button>
-                <button class="menu-btn" [routerLink]="['/ownerPage/menu/', restaurant.id]">
+                <!-- <button class="menu-btn" [routerLink]="['/ownerPage/menu/', restaurant.id]">
                     Menu
-                </button>
+                </button> -->
 
                 <div class="footer">
                     <div class="location">

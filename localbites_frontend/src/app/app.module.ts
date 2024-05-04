@@ -28,6 +28,7 @@ import { UserSignupComponent } from './login/user-signup/user-signup.component';
 import { RestaurantSignupComponent } from './login/restaurant-signup/restaurant-signup.component';
 import { RestaurantLoginComponent } from './login/restaurant-login/restaurant-login.component';
 import { PromptAddPageComponent } from './owner/prompt-add-page/prompt-add-page.component';
+import { PromptUpdatePageComponent } from './owner/prompt-update-page/prompt-update-page.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { PromptAddPageComponent } from './owner/prompt-add-page/prompt-add-page.
     UserSignupComponent,
     RestaurantSignupComponent,
     RestaurantLoginComponent,
-    PromptAddPageComponent
+    PromptAddPageComponent,
+    PromptUpdatePageComponent
    // RestaurantDataFormComponent
   ],
   imports: [

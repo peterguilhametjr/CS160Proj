@@ -19,6 +19,7 @@ import { RestaurantSignupComponent } from './login/restaurant-signup/restaurant-
 import { RestaurantLoginComponent } from './login/restaurant-login/restaurant-login.component';
 import { AuthGuard } from './login/auth.guard';
 import { PromptAddPageComponent } from './owner/prompt-add-page/prompt-add-page.component';
+import { PromptUpdatePageComponent } from './owner/prompt-update-page/prompt-update-page.component';
 
 
 
@@ -36,16 +37,17 @@ const routes: Routes = [
   {path:'cartPage', component:CartComponent}, // need to add id
   {path:'restaurant/:id', component:RestaurantPageComponent},
   {path:'ownerPage/:user_id', component:OwnerPageComponent}, // need to add id
-  {path:'ownerPage/updaterestaurant/:id', component:UpdateRestaurantComponent},
   {path:'driverPage', component:DriverPageComponent},
+
+  {path:'ownerPage/:user_id/updaterestaurant', component:UpdateRestaurantComponent},
+  {path:'ownerPage/:user_id/updaterestaurant/:restaurant_id/prompt_update', component:PromptUpdatePageComponent},
+  {path:'ownerPage/:user_id/updaterestaurant/:restaurant_id/prompt_update/updatemenu', component:UpdateMenuComponent},
+
   {path:'ownerPage/:user_id/addrestaurant', component:AddRestaurantComponent}, // need to add id
   {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add', component: PromptAddPageComponent},
-  // {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add/addmenu', component: MenuPageComponent },
-////////////////
-  {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/prompt_add/addmenu', component:AddMenuComponent},
+  {path:'ownerPage/:user_id/addrestaurant/:restaurant_id/addmenu', component:AddMenuComponent},
 
-  {path:'ownerPage/menu/:id/update/:item_id', component:UpdateMenuComponent},
-  {path:'restaurant/:id/menu', component:UserMenuComponent}
+  // {path:'restaurant/:id/menu', component:UserMenuComponent}
 
 
   

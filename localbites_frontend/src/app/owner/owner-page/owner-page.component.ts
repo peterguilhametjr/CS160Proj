@@ -48,8 +48,14 @@ export class OwnerPageComponent implements OnInit {
 
   }
 
-  navigateToUpdatePage(id: string): void {
-    this.router.navigate(['/ownerPage/updaterestaurant', id]);
+  navigateToUpdatePage(): void {
+    if (this.user_id) {
+      this.router.navigate(['/ownerPage', this.user_id, 'updaterestaurant'])
+      console.log("work: " + this.user_id);
+    }
+    else {
+      console.error("User ID not available")
+    }
   }
 
   onDeleteClicked(id: string): void {
