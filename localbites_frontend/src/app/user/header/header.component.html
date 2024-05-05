@@ -1,13 +1,15 @@
 <header>
     <div class="container">
-        <a href="#" routerLink="/" class="logo">Local Bites</a>
+        <a href="#" class="logo">Local Bites</a>
         <nav>
             <ul>
                 <li>
-                    <a href = "#" routerLink="/searchPage">Search</a>
-                    <a href = "#" routerLink="/offersPage">Offers</a>
-                    <a href = "#" routerLink="/cartPage">Cart</a>
+                    <a [routerLink]="['/searchPage', user_id]">Search</a>
+                    <a [routerLink]="['/offersPage', user_id]">Offers</a>
+                    <a [routerLink]="['/cartPage', user_id]">Cart</a>
                     <a href = "#" routerLink="">Logout</a>
+                    <!-- <a [routerLink]="['/ownerPage', user_id]">Your Restaurants</a>
+                    <a href = "#" routerLink="">Logout</a> -->
                 </li>
             </ul>
         </nav>

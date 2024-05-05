@@ -9,6 +9,7 @@ import { ListingsService } from '../../listings.service';
 })
 export class UserSignupComponent {
   signupForm!: FormGroup;
+  cartId!: number;
 
   constructor(    private formBuilder: FormBuilder,
     private signupService: ListingsService,
@@ -38,12 +39,42 @@ export class UserSignupComponent {
         ).subscribe({
           next: (res) => {
             console.log('Signup added successfully!', res);
-            this.router.navigate(['/searchPage'], { relativeTo: this.route }); 
+            // this.router.navigate(['/searchPage'], { relativeTo: this.route }); 
           },
           error: (err) => {
             console.error('Error adding User: ', err);
           }
         });
+        
+        this.signupService.getUserIdRoute(
+          this.signupForm.value.name,
+          this.signupForm.value.email,
+          this.signupForm.value.zip_code,
+          this.signupForm.value.password
+        ).subscribe(
+          (response: any) => {
+            console.log('retrieved userid succesffully!', response.results[0].user_id);
+            this.cartId = response.results[0].user_id;
+            console.log('try this: ' + this.cartId)
+            this.signupService.cartInitializeRoute(
+              this.cartId,
+              0,
+              0
+            ).subscribe({
+              next: (res) => {
+                console.log('cart initialized!', res);
+                // this.router.navigate(['/searchPage'], { relativeTo: this.route }); 
+              },
+              error: (err) => {
+                console.log("cartID: " + this.cartId)
+                console.error('Error initializing cart: ', err);
+              }
+            }
+            );
+          }
+        );
+
+
         
         
       } else {

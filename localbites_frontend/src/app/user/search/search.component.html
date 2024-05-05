@@ -7,7 +7,7 @@
         </div>
         <ul>
             <li *ngFor="let restaurant of filteredRestaurants" class="restaurants">
-                <a routerLink="/restaurant/{{restaurant.id}}">
+                <a routerLink="/{{user_id}}/restaurant/{{restaurant.id}}">
                     <img [src]="restaurant.imageURL" alt="">
                     <div class="content">
                         <div class="name">

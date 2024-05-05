@@ -22,7 +22,7 @@
         <h3>Menu Items</h3>
         <ul>
             <li *ngFor="let item of restaurant.items">
-                {{ item.name }} - ${{ item.price }}
+                {{ item.name }} - ${{ item.price }} <button (click)="addToCart(item.item_id, item.name, item.price)" class="add-to-crt">Add to Cart</button>
             </li>
         </ul>
     </div>

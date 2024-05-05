@@ -30,14 +30,14 @@ const routes: Routes = [
   {path:'restaurant/login', component:RestaurantLoginComponent},
 
   {path:'users/login', component:UserLoginComponent},
-  { path:'searchPage/:user_id', component: SearchComponent, canActivate: [AuthGuard] },
-  
-  {path:'searchPage/search/:searchTerm', component:SearchComponent},
-  {path:'offersPage', component:OffersPageComponent}, 
-  {path:'cartPage', component:CartComponent}, // need to add id
-  {path:'restaurant/:id', component:RestaurantPageComponent},
+  { path:'searchPage/:user_id', component: SearchComponent},
+  {path:'searchPage/:user_id/search/:searchTerm', component:SearchComponent},
+  {path:'offersPage/:user_id', component:OffersPageComponent}, 
+  {path:'cartPage/:user_id', component:CartComponent}, // need to add id
+  {path:':user_id/restaurant/:id', component:RestaurantPageComponent},
+
+
   {path:'ownerPage/:user_id', component:OwnerPageComponent}, // need to add id
-  {path:'driverPage', component:DriverPageComponent},
 
   {path:'ownerPage/:user_id/updaterestaurant/:id', component:UpdateRestaurantComponent},
   // {path:'ownerPage/:user_id/updaterestaurant/:restaurant_id/menu_page', component:PromptUpdatePageComponent},
@@ -49,6 +49,7 @@ const routes: Routes = [
   {path:'ownerPage/:user_id/addrestaurant/:id/addmenu', component:AddMenuComponent},
 
   // {path:'restaurant/:id/menu', component:UserMenuComponent}
+  {path:'driverPage', component:DriverPageComponent},
 
 
   

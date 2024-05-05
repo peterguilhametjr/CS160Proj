@@ -5,6 +5,7 @@ import { Restaurant } from './shared/models/Restaurant';
 import { Offer } from './shared/models/Offer';
 import { Menu } from './shared/models/Menu';
 import { User } from './shared/models/User';
+import { Cart, Cart_Details } from './shared/models/Cart';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -27,6 +28,8 @@ export class ListingsService {
   Offers: Offer[] = [];
   Menu: Menu[] = [];
   Users: User[] =[]; 
+  Cart: Cart[] = [];
+  Cart_Details: Cart_Details[] = [];
   
   getAll: any;
   updateRestaurant: any;
@@ -39,10 +42,32 @@ export class ListingsService {
     const body = { name, email, zip_code, password };
     return this.http.post<User>('/api/userSignup', body);
   }
+  // getRestaurantsMenuRoute(id: string): Observable<Menu[]> {
+  //   return this.http.get<Menu[]>(`/api/ownerpage/menu/${id}`);
+  // }
+
+
+  getUserIdRoute(name: string, email: string, zip_code: string, password: string): Observable<User> {
+    return this.http.get<User>(`/api/userid/${name}/${email}/${zip_code}/${password}`);
+  }
+
+  cartInitializeRoute(user_id: number, quantity: number, total_price: number): Observable<Cart> {
+    const body = { user_id, quantity, total_price}
+    return this.http.post<Cart>('/api/user/cart/', body);
+  }
+
+
   RestaurantUserSignupRoute(name: string, email: string, password: string): Observable<User> {
     const body = { name, email, password };
     return this.http.post<User>('/api/restaurant/userSignup', body);
   }
+
+  addToCartRoute(user_id: number, item_id: number, name: string, price: number): Observable<Cart> {
+    const body = { user_id, item_id, name, price }
+    return this.http.post<Cart>('/api/user/cart/addToCart', body);
+    // api/user/cart/addToCart
+  }
+
 
   UserLoginRoute(email: string, password: string): Observable<any> {
     const body = { email, password };
@@ -76,6 +101,11 @@ export class ListingsService {
   getUserRestaurantsMenuRoute(id: string): Observable<Menu[]> {
     return this.http.get<Menu[]>(`/api/restaurant/${id}/menu`);
   }  
+
+  getUserSpecificCartDetailsRoute(user_id: string): Observable<Cart_Details[]> {
+    return this.http.get<Cart_Details[]>(`/api/user/cartDetails/${user_id}`)
+  }
+
   // done when using post request will need to enter all the columns of table
   updateRestaurantRoute(id: string, name: string, location: string, tags: string[], stars: number, imageURL: string, zip_code: string): Observable<Restaurant> {
     const body = { name, location, tags, stars, imageURL, zip_code }; //means we only need to update all these cuz remember id is auto increment, so can't update id
@@ -96,6 +126,11 @@ export class ListingsService {
   deleteRestaurantRoute(id: string): Observable<any> {
     return this.http.delete(`/api/ownerpage/${id}`);
   }
+
+  deleteCartRoute(cart_item_id: number): Observable<any> {
+    return this.http.delete(`/api/user/cartDelete/${cart_item_id}`)
+  }
+  
   // done
   getRestaurantsMenuRoute(id: string): Observable<Menu[]> {
     return this.http.get<Menu[]>(`/api/ownerpage/menu/${id}`);
@@ -127,5 +162,13 @@ export class ListingsService {
   deleteMenuRoute(id: string, item_id: string): Observable<any> {
     return this.http.delete(`/api/ownerpage/menu/${id}/${item_id}`);
   }
+
+  // initializeCartRoute(){
+
+  // }
+
+  // addToCartRoute(id: string): Observable<Restaurant> {
+  //   return this.http.post<Restaurant>(`/api/`)
+  // }
   
 }

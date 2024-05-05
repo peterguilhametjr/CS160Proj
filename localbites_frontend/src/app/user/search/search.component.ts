@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Restaurant} from '../../shared/models/Restaurant'
 import { ActivatedRoute } from '@angular/router';
 import { ListingsService } from '../../listings.service';
+import { UserService } from '../../services/UserService';
 
 @Component({
   selector: 'app-search',
@@ -14,14 +15,23 @@ export class SearchComponent implements OnInit {
   restaurants: Restaurant[] = [];
   filteredRestaurants: Restaurant[] = [];
   searchTitle: string = '';
-
-  constructor(private restaurantsService: ListingsService) { }
+  user_id: string | null = '';
+  
+  constructor(private restaurantsService: ListingsService,
+    private userService: UserService,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
     this.restaurantsService.getAllRestaurantsRoute().subscribe(restaurants => {
       this.restaurants = restaurants;
       this.filteredRestaurants = restaurants;
     });
+    this.route.paramMap.subscribe(params => {
+      this.user_id = params.get('user_id');
+    });
+    this.userService.setUserId(this.user_id!)
+    console.log("something: " + this.user_id)
   }
 
   filterRestaurants(event: Event): void {
