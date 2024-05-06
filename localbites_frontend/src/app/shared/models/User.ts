@@ -4,5 +4,5 @@ export class User{
     email!:string;
     zip_code!:string;
     password!:string;
-
+    wallet!:number;
 }

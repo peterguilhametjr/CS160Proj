@@ -29,6 +29,7 @@ import { RestaurantSignupComponent } from './login/restaurant-signup/restaurant-
 import { RestaurantLoginComponent } from './login/restaurant-login/restaurant-login.component';
 import { PromptAddPageComponent } from './owner/prompt-add-page/prompt-add-page.component';
 import { PromptUpdatePageComponent } from './owner/prompt-update-page/prompt-update-page.component';
+import { WalletComponent } from './user/wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { PromptUpdatePageComponent } from './owner/prompt-update-page/prompt-upd
     RestaurantSignupComponent,
     RestaurantLoginComponent,
     PromptAddPageComponent,
-    PromptUpdatePageComponent
+    PromptUpdatePageComponent,
+    WalletComponent
    // RestaurantDataFormComponent
   ],
   imports: [

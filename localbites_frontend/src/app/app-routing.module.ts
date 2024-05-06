@@ -20,6 +20,7 @@ import { RestaurantLoginComponent } from './login/restaurant-login/restaurant-lo
 import { AuthGuard } from './login/auth.guard';
 import { PromptAddPageComponent } from './owner/prompt-add-page/prompt-add-page.component';
 import { PromptUpdatePageComponent } from './owner/prompt-update-page/prompt-update-page.component';
+import { WalletComponent } from './user/wallet/wallet.component';
 
 
 
@@ -35,7 +36,7 @@ const routes: Routes = [
   {path:'offersPage/:user_id', component:OffersPageComponent}, 
   {path:'cartPage/:user_id', component:CartComponent}, // need to add id
   {path:':user_id/restaurant/:id', component:RestaurantPageComponent},
-
+  {path:'walletPage/:user_id', component:WalletComponent},
 
   {path:'ownerPage/:user_id', component:OwnerPageComponent}, // need to add id
 

@@ -21,8 +21,20 @@ import { getRestaurantIdRoute } from "./getrestaurantid";
 import { getUserIdRoute } from "./UserSignup";
 import { initializeCart } from "./UserSignup";
 import { addCartRoute } from "./cart";
-import { getUserCartRoute } from "./cart";
+import { getUserCartDetailsRoute } from "./cart";
 import { deleteCartRoute } from "./cart";
+import { getCartQuantity } from "./cart";
+import { getCartTotalPrice } from "./cart";
+import { updateCartTotalPriceQuantity } from "./cart";
+import { getCart } from "./cart";
+import { addOrderRoute } from "./order";
+import { moveToOrderRoute } from "./order";
+import { deleteAllFromCart } from "./cart";
+import { getUserOrdersRoute } from "./order";
+import { getUserOrderDetailsRoute } from "./order";
+import { getAllUsersRoute } from "./user";
+import { addToWallet } from "./wallet";
+
 
 export default [
     getAllRestaurantsRoute,
@@ -48,6 +60,17 @@ export default [
     getUserIdRoute,
     initializeCart,
     addCartRoute,
-    getUserCartRoute,
-    deleteCartRoute
+    getUserCartDetailsRoute,
+    deleteCartRoute,
+    getCartQuantity,
+    getCartTotalPrice,
+    updateCartTotalPriceQuantity,
+    getCart,
+    addOrderRoute,
+    moveToOrderRoute,
+    deleteAllFromCart,
+    getUserOrdersRoute,
+    getUserOrderDetailsRoute,
+    getAllUsersRoute,
+    addToWallet
 ];
