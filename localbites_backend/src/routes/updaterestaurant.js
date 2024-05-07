@@ -5,15 +5,15 @@ export const updateRestaurantRoute = {
     method: 'POST',
     path: '/api/ownerpage/updaterestaurant/{id}', 
     handler: async (req, h) => {
-        const { name, location, tags, stars, imageURL, zip_code } = req.payload;
+        const { name, location, tags, discount, stars, imageURL, zip_code } = req.payload;
         const id = req.params.id; // Get the id from the request parameters
         try {
             // Update restaurant data in the database
             const result = await db.query(`
             UPDATE restaurants
-            SET name = ?, location = ?, tags = ?, stars = ?, imageURL = ?, zip_code = ?
+            SET name = ?, location = ?, tags = ?, discount = ?, stars = ?, imageURL = ?, zip_code = ?
             WHERE id = ?;
-        `, [name, location, tags, stars, imageURL, zip_code, id]);
+        `, [name, location, tags, discount, stars, imageURL, zip_code, id]);
         
 
             if (result.affectedRows === 0) {
@@ -22,7 +22,7 @@ export const updateRestaurantRoute = {
 
             return h.response({
                 message: 'Restaurant updated successfully',
-                id: id, name, location, tags, stars, imageURL, zip_code
+                id: id, name, location, tags, discount, stars, imageURL, zip_code
             }).code(200);
         } catch (error) {
             console.error('Database operation failed:', error);

@@ -30,6 +30,7 @@ import { RestaurantLoginComponent } from './login/restaurant-login/restaurant-lo
 import { PromptAddPageComponent } from './owner/prompt-add-page/prompt-add-page.component';
 import { PromptUpdatePageComponent } from './owner/prompt-update-page/prompt-update-page.component';
 import { WalletComponent } from './user/wallet/wallet.component';
+import { DriverTaskbarComponent } from './driver/driver-taskbar/driver-taskbar.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { WalletComponent } from './user/wallet/wallet.component';
     RestaurantLoginComponent,
     PromptAddPageComponent,
     PromptUpdatePageComponent,
-    WalletComponent
+    WalletComponent,
+    DriverTaskbarComponent
    // RestaurantDataFormComponent
   ],
   imports: [

@@ -1,6 +1,9 @@
 <app-header></app-header>
 <!-- <h2>something</h2> -->
 <div class="container">
+    <li *ngIf="user">
+        <h2>Wallet: ${{ user.wallet }}</h2>
+    </li>
     <li *ngIf="cart">
         <h2>Total Cart Quantity: {{ cart.quantity}}</h2>
         <h2>Total Cart Price: ${{ cart.total_price}}</h2>

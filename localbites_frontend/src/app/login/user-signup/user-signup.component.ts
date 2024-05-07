@@ -81,4 +81,8 @@ export class UserSignupComponent {
         console.error('Form is not valid');
       }
     }
+
+    goToLoginPage(): void {
+      this.router.navigate(['/users/login']);
+    }
   }

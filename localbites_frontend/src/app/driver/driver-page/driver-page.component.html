@@ -1,1 +1,12 @@
-<p>driver-page works!</p>
+<app-driver-taskbar></app-driver-taskbar>
+<div class="container">
+    <li *ngFor="let order of orders">
+        userid: {{ order.user_id }}
+        orderid: {{ order.order_id }}
+    </li>
+    <input type="number" [(ngModel)]="orderToComplete" placeholder="Enter order id that you want to complete...">
+
+    <!-- Submit button to add funds to the wallet -->
+    <button (click)="completeOrder()">Complete Order</button>
+
+</div>

@@ -33,6 +33,7 @@ export class UpdateRestaurantComponent implements OnInit {
           name: [restaurant.name],
           location: [restaurant.location],
           tags: [restaurant.tags],
+          discount: [restaurant.discount],
           stars: [restaurant.stars],
           imageURL: [restaurant.imageURL],
           zip_code: [restaurant.zip_code]
@@ -56,6 +57,7 @@ export class UpdateRestaurantComponent implements OnInit {
         this.restaurantForm.value.name,
         this.restaurantForm.value.location,
         this.restaurantForm.value.tags,
+        this.restaurantForm.value.discount,
         this.restaurantForm.value.stars,
         this.restaurantForm.value.imageURL,
         this.restaurantForm.value.zip_code

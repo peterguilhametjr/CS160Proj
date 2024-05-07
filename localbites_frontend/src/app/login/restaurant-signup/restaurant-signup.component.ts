@@ -49,4 +49,8 @@ export class RestaurantSignupComponent {
         console.error('Form is not valid');
       }
     }
+
+    goToLoginPage(): void {
+      this.router.navigate(['/restaurant/login']);
+    }
   }

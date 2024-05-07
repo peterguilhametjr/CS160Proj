@@ -6,6 +6,7 @@ export class Restaurant{
     imageURL!:string;
     location!:string;
     zip_code!:string;
+    discount!:number;
     items?: Item[];  // Include an array of Menu items
 }
 
