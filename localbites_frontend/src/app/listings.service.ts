@@ -127,8 +127,8 @@ export class ListingsService {
   }
 
   // done when using post request will need to enter all the columns of table
-  updateRestaurantRoute(id: string, name: string, location: string, tags: string[], discount: number, stars: number, imageURL: string, zip_code: string): Observable<Restaurant> {
-    const body = { name, location, tags, discount, stars, imageURL, zip_code }; //means we only need to update all these cuz remember id is auto increment, so can't update id
+  updateRestaurantRoute(id: string, name: string, location: string, tags: string[], imageURL: string, zip_code: string): Observable<Restaurant> {
+    const body = { name, location, tags, imageURL, zip_code }; //means we only need to update all these cuz remember id is auto increment, so can't update id
     return this.http.post<Restaurant>(`/api/ownerpage/updaterestaurant/${id}`, body, this.httpOptions);
   }
 
@@ -138,8 +138,8 @@ export class ListingsService {
   }
 
   //done same reasonning as above no need for id in this we are not using id in url
-  addRestaurantRoute(name: string, location: string, tags: string[], discount: number, stars: number, imageURL: string, zip_code: string, user_id: number): Observable<Restaurant> {
-    const body = { name, location, tags, discount, stars, imageURL, zip_code, user_id };
+  addRestaurantRoute(name: string, location: string, tags: string[], imageURL: string, zip_code: string, user_id: number): Observable<Restaurant> {
+    const body = { name, location, tags, imageURL, zip_code, user_id };
     return this.http.post<Restaurant>(`/api/ownerpage/addrestaurant`, body, this.httpOptions);
   }
 

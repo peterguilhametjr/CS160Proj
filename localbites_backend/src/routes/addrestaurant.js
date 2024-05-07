@@ -6,7 +6,7 @@ export const addRestaurantRoute = {
     path: '/api/ownerpage/addrestaurant',
     
     handler: async (req, h) => {
-        const { name, location, tags, discount, stars, imageURL, zip_code, user_id } = req.payload;
+        const { name, location, tags, imageURL, zip_code, user_id } = req.payload;
 
         // Convert 'true'/'false' or true/false to integer 1/0
         // const favoriteInt = (favorite === 'true' || favorite === true) ? 1 : 0;
@@ -14,14 +14,14 @@ export const addRestaurantRoute = {
         try {
             // Insert new restaurant data into the database
             const result = await db.query(`
-                INSERT INTO restaurants (name, location, tags, discount, stars, imageURL, zip_code, user_id)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?);
-            `, [name, location, tags, discount, stars, imageURL, zip_code, user_id]);
+                INSERT INTO restaurants (name, location, tags, imageURL, zip_code, user_id)
+                VALUES (?, ?, ?, ?, ?, ?);
+            `, [name, location, tags, imageURL, zip_code, user_id]);
 
             // Fetch the last insert id
             const insertId = result.insertId;
 
-            return { id: insertId, name, location, tags, discount, stars, imageURL, zip_code, user_id };
+            return { id: insertId, name, location, tags, imageURL, zip_code, user_id };
         } catch (error) {
             console.error('Database operation failed:', error);
             throw Boom.internal('An internal server error occurred', { error });

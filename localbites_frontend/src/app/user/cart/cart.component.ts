@@ -99,6 +99,12 @@ export class CartComponent implements OnInit{
   moveToPendingOrder(): void {
     if (this.user.wallet - this.cart.total_price > 0) {
 
+      this.cartService.updateWalletByIdRoute(this.user_id_num, this.user.wallet - this.cart.total_price).subscribe(user => {
+        this.user = user;
+        this.wallet = user.wallet;
+        // this.wallet = user.wallet;
+        console.log("test wallet: " + this.wallet)
+      });
 
       this.user_id_num = this.user_id !== null ? parseInt(this.user_id, 10) : 0; // Assuming default value of 0 if user_id is null
       this.cartService.addOrderRoute(this.user_id_num, this.cart.total_price).subscribe({

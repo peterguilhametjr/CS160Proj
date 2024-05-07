@@ -25,8 +25,6 @@ export class AddRestaurantComponent implements OnInit {
       name: ['', Validators.required],
       location: ['', Validators.required],
       tags: [''],   // add commas to seperat
-      discount: [0, [Validators.required, Validators.min(0), Validators.max(100)]],
-      stars: [0.0, [Validators.required, Validators.min(1), Validators.max(5)]], // default value for decimal(3,1) field
       imageURL: [''],
       zip_code: ['']
     });
@@ -53,8 +51,6 @@ export class AddRestaurantComponent implements OnInit {
         this.restaurantForm.value.name,
         this.restaurantForm.value.location,
         this.restaurantForm.value.tags,
-        this.restaurantForm.value.discount,
-        this.restaurantForm.value.stars,
         this.restaurantForm.value.imageURL,
         this.restaurantForm.value.zip_code,
         this.user_id_num
