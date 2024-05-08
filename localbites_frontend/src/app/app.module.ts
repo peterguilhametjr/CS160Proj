@@ -31,6 +31,9 @@ import { PromptAddPageComponent } from './owner/prompt-add-page/prompt-add-page.
 import { PromptUpdatePageComponent } from './owner/prompt-update-page/prompt-update-page.component';
 import { WalletComponent } from './user/wallet/wallet.component';
 import { DriverTaskbarComponent } from './driver/driver-taskbar/driver-taskbar.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AddCartErrorComponent } from './pop-ups/add-cart-error/add-cart-error.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -59,8 +62,8 @@ import { DriverTaskbarComponent } from './driver/driver-taskbar/driver-taskbar.c
     PromptAddPageComponent,
     PromptUpdatePageComponent,
     WalletComponent,
-    DriverTaskbarComponent
-   // RestaurantDataFormComponent
+    DriverTaskbarComponent,
+    AddCartErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -69,10 +72,10 @@ import { DriverTaskbarComponent } from './driver/driver-taskbar/driver-taskbar.c
     HttpClientModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    MatDialogModule
   ],
 
-providers: [provideHttpClient(withFetch()), provideClientHydration()],
+providers: [provideHttpClient(withFetch()), provideClientHydration(), provideAnimationsAsync()],
 
 bootstrap: [AppComponent]
 })

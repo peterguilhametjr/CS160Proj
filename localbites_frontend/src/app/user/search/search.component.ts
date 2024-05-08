@@ -16,6 +16,10 @@ export class SearchComponent implements OnInit {
   filteredRestaurants: Restaurant[] = [];
   searchTitle: string = '';
   user_id: string | null = '';
+  searchTermName:string = '';
+  searchTermZip:string = '';
+  searchTermTags:string = '';
+
   
   constructor(private restaurantsService: ListingsService,
     private userService: UserService,
@@ -34,10 +38,33 @@ export class SearchComponent implements OnInit {
     console.log("something: " + this.user_id)
   }
 
-  filterRestaurants(event: Event): void {
-    const query = (event.target as HTMLInputElement).value; // Cast event.target to HTMLInputElement
+  filterRestaurantsName(): void {
+    // const query = (event.target as HTMLInputElement).value; // Cast event.target to HTMLInputElement
     this.filteredRestaurants = this.restaurants.filter(restaurant =>
-      restaurant.name.toLowerCase().includes(query.toLowerCase())
+      restaurant.name.toLowerCase().includes(this.searchTermName.toLowerCase())
+    );
+  
+  }
+
+  filterRestaurantsZip(): void {
+    // const query = (event.target as HTMLInputElement).value; // Cast event.target to HTMLInputElement
+    if (this.searchTermZip.length > 0) {
+      this.filteredRestaurants = this.restaurants.filter(restaurant =>
+        restaurant.zip_code.toLowerCase() === this.searchTermZip.toLowerCase()
+      );
+    }
+    else {
+      this.filteredRestaurants = this.restaurants.filter(restaurant =>
+        restaurant.zip_code.toLowerCase().includes(this.searchTermZip.toLowerCase())
+      );
+    }
+  }
+
+  filterRestaurantsTags(): void {
+    console.log("tags: " + this.restaurants[0].tags![0])
+    this.filteredRestaurants = this.restaurants.filter(restaurant =>
+      restaurant.tags!.includes(this.searchTermTags.toLowerCase())
     );
   }
+
 }

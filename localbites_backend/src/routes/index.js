@@ -36,6 +36,7 @@ import { getAllUsersRoute } from "./user";
 import { addToWallet } from "./wallet";
 import { getAllOrders } from "./driver";
 import { fullfilOrder } from "./driver";
+import { getItemSpecificRoute } from "./getItem";
 
 
 export default [
@@ -76,5 +77,6 @@ export default [
     getAllUsersRoute,
     addToWallet,
     getAllOrders,
-    fullfilOrder
+    fullfilOrder,
+    getItemSpecificRoute
 ];

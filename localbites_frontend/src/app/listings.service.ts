@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 //import { RestaurantsService } from './services/restaurants/restaurants.service'; 
 
-import { Restaurant } from './shared/models/Restaurant';
+import { Item, Restaurant } from './shared/models/Restaurant';
 import { Offer } from './shared/models/Offer';
 import { Menu } from './shared/models/Menu';
 import { User } from './shared/models/User';
@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Order, Order_Details } from './shared/models/Order';
-
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +33,8 @@ export class ListingsService {
   Order: Order[] = [];
   Order_Details: Order_Details[] = [];
   User!:User;
+  Items: Item[] = [];
+  Item!:Item;
   
   getAll: any;
   updateRestaurant: any;
@@ -206,6 +207,10 @@ export class ListingsService {
   //done
   getItemRoute(id: string, item_id: string): Observable<Menu> {
     return this.http.get<Menu>(`/api/ownerpage/menu/${id}/update/${item_id}`);
+  }
+
+  getItemSpecificRoute(item_id: number): Observable<Item> {
+    return this.http.get<Item>(`/api/getItems/${item_id}`)
   }
 
   // wokrking with only restaurants not menu, maybe cuz of itemsdetails  ----- done

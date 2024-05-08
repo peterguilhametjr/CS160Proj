@@ -18,3 +18,8 @@ body{
 a{
     text-decoration: none;
 }
+html { height: 100%; }
+body { margin: 0; font-family: "Quicksand", sans-serif; }
+
+/* html, body { height: 100%; } */
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

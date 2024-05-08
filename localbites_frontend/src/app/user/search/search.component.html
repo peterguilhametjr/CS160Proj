@@ -1,29 +1,39 @@
 <app-header></app-header>
 <div class="whole-page">
-    <app-search-bar (input)="filterRestaurants($event)"></app-search-bar>
-    <div class="search-page">
-        <div class="recommend">
-            <h2>{{ searchTitle }}</h2>
+    <div class="container">
+        <input type="text" placeholder="Search Restaurant Name..." [(ngModel)]="searchTermName">
+        <button (click)="filterRestaurantsName()">Search</button>
+
+        <input type="text" placeholder="Search Restaurant Zip Code..." [(ngModel)]="searchTermZip">
+        <button (click)="filterRestaurantsZip()">Search</button>
+
+        <!-- <input type="text" placeholder="Search Restaurant Tags..." [(ngModel)]="searchTermTags"> might work on this if there is time
+        <button (click)="filterRestaurantsTags()">Search</button> -->
+        <!-- <app-search-bar (input)="filterRestaurantsZip($event)"></app-search-bar> -->
+        <div class="search-page">
+            <div class="recommend">
+                <h2>{{ searchTitle }}</h2>
+            </div>
+            <ul>
+                <li *ngFor="let restaurant of filteredRestaurants" class="restaurants">
+                    <a routerLink="/{{user_id}}/restaurant/{{restaurant.id}}">
+                        <img [src]="restaurant.imageURL" alt="">
+                        <div class="content">
+                            <div class="name">
+                                {{ restaurant.name }}
+                            </div>
+                            <div class="footer">
+                                <div class="tags">
+                                    {{ restaurant.tags }}
+                                </div>
+                                <div class="location">
+                                    {{ restaurant.location }}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <ul>
-            <li *ngFor="let restaurant of filteredRestaurants" class="restaurants">
-                <a routerLink="/{{user_id}}/restaurant/{{restaurant.id}}">
-                    <img [src]="restaurant.imageURL" alt="">
-                    <div class="content">
-                        <div class="name">
-                            {{ restaurant.name }}
-                        </div>
-                        <div class="footer">
-                            <div class="tags">
-                                {{ restaurant.tags }}
-                            </div>
-                            <div class="location">
-                                {{ restaurant.location }}
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-        </ul>
     </div>
 </div>
