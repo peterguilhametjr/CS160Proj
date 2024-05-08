@@ -23,12 +23,17 @@ export class DriverPageComponent implements OnInit{
   }
 
   completeOrder(): void {
-    this.driverService.fullfilOrder(this.orderToComplete).subscribe(orders => {
-      this.driverService.getAllOrders().subscribe(orders => {
-        // console.log("orders loaded");
-        this.orders = orders;
-      });
-    });
+    this.driverService.sendToHistory(this.orderToComplete).subscribe(order_hists => {
+      this.driverService.sendToHistoryDetails(this.orderToComplete).subscribe(order_hist_details => {
+        this.driverService.fullfilOrder(this.orderToComplete).subscribe(orders => {
+          this.driverService.getAllOrders().subscribe(orders => {
+            // console.log("orders loaded");
+            this.orders = orders;    
+          });
+        });
+      })
+    })
+
   }
 
 }

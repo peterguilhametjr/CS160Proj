@@ -23,6 +23,17 @@
             </ng-container>
         </ul>
     </li>
+    <h2>Order History</h2>
+    <li *ngFor="let orderHistory of orderHistories">
+        <h4>Total Price for order#{{ orderHistory.order_id }}: ${{ orderHistory.total_price }}</h4>
+        <ul>
+            <ng-container *ngFor="let order_history_detail of order_history_details">
+                <li *ngIf="order_history_detail.order_id === orderHistory.order_id">
+                    {{ order_history_detail.name }} - {{ order_history_detail.price }}
+                </li>
+            </ng-container>
+        </ul>
+    </li>
 
 
     <!-- <h2>Order History</h2> -->

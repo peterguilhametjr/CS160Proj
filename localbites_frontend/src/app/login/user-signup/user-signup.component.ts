@@ -38,11 +38,13 @@ export class UserSignupComponent {
           this.signupForm.value.password
         ).subscribe({
           next: (res) => {
-            console.log('Signup added successfully!', res);
+            // console.log('Signup added successfully!', res);
+            alert("Signed up successfully! Try logging in!")
             // this.router.navigate(['/searchPage'], { relativeTo: this.route }); 
           },
           error: (err) => {
-            console.error('Error adding User: ', err);
+            // console.error('Error adding User: ', err);
+            alert("Unable to add account/account already exists")
           }
         });
         

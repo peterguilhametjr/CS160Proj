@@ -123,12 +123,13 @@ export class UserLoginComponent {
           },
           error: (err) => {
             console.error('Login failed: ', err);
-            this.errorMessage = 'Login failed. Try signing up first!';
+            alert("Login failed, try signing up first!")
           }
         });
       } else {
         console.error('Form is not valid');
-        this.errorMessage = 'Please fill out all fields correctly.';
+        // this.errorMessage = 'Please fill out all fields correctly.';
+        alert("Please fill out all fields correctly.")
       }
     }
     

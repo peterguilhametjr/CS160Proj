@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { Order, Order_Details } from './shared/models/Order';
+import { Order, Order_Details, Order_History, Order_Details_History } from './shared/models/Order';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +35,8 @@ export class ListingsService {
   User!:User;
   Items: Item[] = [];
   Item!:Item;
+  Order_History: Order_History[] = [];
+  Order_History_Details: Order_Details_History[] = [];
   
   getAll: any;
   updateRestaurant: any;
@@ -144,6 +146,16 @@ export class ListingsService {
     return this.http.post<Restaurant>(`/api/ownerpage/addrestaurant`, body, this.httpOptions);
   }
 
+  sendToHistory(order_id: number): Observable<Order_History> {
+    const body = { order_id };
+    return this.http.post<Order_History>(`/api/driverPage/sendToHistory`, body, this.httpOptions);
+  }
+
+  sendToHistoryDetails(order_id: number): Observable<Order_Details_History> {
+    const body = { order_id };
+    return this.http.post<Order_Details_History>(`/api/driverPage/sendToHistoryDetails`, body, this.httpOptions);
+  }
+
   // res.order_id, cartItem.name, cartItem.price
 
   moveCartToOrders(user_id: number, order_id: number, name: string, price: number, item_id: number): Observable<Order_Details> {
@@ -189,6 +201,14 @@ export class ListingsService {
   // done
   getRestaurantsMenuRoute(id: string): Observable<Menu[]> {
     return this.http.get<Menu[]>(`/api/ownerpage/menu/${id}`);
+  }
+
+  getUserSpecificOrderHistoryRoute(user_id: number): Observable<Order_History[]> {
+    return this.http.get<Order_History[]>(`/api/userPage/getAllOrderHistories/${user_id}`)
+  }
+
+  getUserSpecificOrderHistoryDetailsRoute(user_id: number): Observable<Order_Details_History[]> {
+    return this.http.get<Order_Details_History[]>(`/api/userPage/getAllOrderHistoryDetails/${user_id}`)
   }
 
 

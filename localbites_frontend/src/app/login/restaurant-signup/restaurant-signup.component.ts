@@ -36,11 +36,12 @@ export class RestaurantSignupComponent {
           this.signupForm.value.password
         ).subscribe({
           next: (res) => {
-            console.log('Signup added successfully!', res);
-            this.router.navigate(['/ownerPage'], { relativeTo: this.route }); 
+            // console.log('Signup added successfully!', res);
+            alert("Signed up successfully! Try logging in!")
+            // this.router.navigate(['/ownerPage'], { relativeTo: this.route }); 
           },
           error: (err) => {
-            console.error('Error adding User: ', err);
+            alert("Unable to add account/account already exists")
           }
         });
         

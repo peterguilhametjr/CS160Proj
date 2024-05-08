@@ -37,7 +37,10 @@ import { addToWallet } from "./wallet";
 import { getAllOrders } from "./driver";
 import { fullfilOrder } from "./driver";
 import { getItemSpecificRoute } from "./getItem";
-
+import { addOrderHistoryRoute } from "./order";
+import { addOrderHistoryDetailsRoute } from "./order";
+import { getAllUserSpecificOrderHistory } from "./order";
+import { getAllUserSpecificOrderHistoryDetails } from "./order";
 
 export default [
     getAllRestaurantsRoute,
@@ -78,5 +81,9 @@ export default [
     addToWallet,
     getAllOrders,
     fullfilOrder,
-    getItemSpecificRoute
+    getItemSpecificRoute,
+    addOrderHistoryRoute,
+    addOrderHistoryDetailsRoute,
+    getAllUserSpecificOrderHistory,
+    getAllUserSpecificOrderHistoryDetails
 ];

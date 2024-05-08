@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Cart, Cart_Details } from '../../shared/models/Cart';
 import { ListingsService } from '../../listings.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Order, Order_Details } from '../../shared/models/Order';
+import { Order, Order_Details, Order_History, Order_Details_History } from '../../shared/models/Order';
 import { User } from '../../shared/models/User';
 
 @Component({
@@ -19,6 +19,8 @@ export class CartComponent implements OnInit{
   user_id_num!:number;
   orders: Order[] = [];
   order_details: Order_Details[] = [];
+  orderHistories: Order_History[] = [];
+  order_history_details: Order_Details_History[] = [];
 
   constructor(
     private cartService: ListingsService,
@@ -51,6 +53,12 @@ export class CartComponent implements OnInit{
               this.orders = orders;
               this.cartService.getUserSpecificOrderDetailsRoute(this.user_id_num).subscribe(order_details => {
                 this.order_details = order_details
+                this.cartService.getUserSpecificOrderHistoryRoute(this.user_id_num).subscribe(orderHistories => {
+                  this.orderHistories = orderHistories;
+                  this.cartService.getUserSpecificOrderHistoryDetailsRoute(this.user_id_num).subscribe(orderHistoryDetails => {
+                    this.order_history_details = orderHistoryDetails;
+                  })
+                })
               })
             })
 
@@ -97,53 +105,61 @@ export class CartComponent implements OnInit{
   }
 
   moveToPendingOrder(): void {
-    if (this.user.wallet - this.cart.total_price > 0) {
+    if (this.cart_items.length != 0){
+      console.log("cart_items_length: " + this.cart_items.length)
+      if (this.user.wallet - this.cart.total_price > 0) {
 
-      this.cartService.updateWalletByIdRoute(this.user_id_num, this.user.wallet - this.cart.total_price).subscribe(user => {
-        this.user = user;
-        this.wallet = user.wallet;
-        // this.wallet = user.wallet;
-        console.log("test wallet: " + this.wallet)
-      });
+        this.cartService.updateWalletByIdRoute(this.user_id_num, this.user.wallet - this.cart.total_price).subscribe(user => {
+          this.user = user;
+          this.wallet = user.wallet;
+          // this.wallet = user.wallet;
+          console.log("test wallet: " + this.wallet)
+        });
 
-      this.user_id_num = this.user_id !== null ? parseInt(this.user_id, 10) : 0; // Assuming default value of 0 if user_id is null
-      this.cartService.addOrderRoute(this.user_id_num, this.cart.total_price).subscribe({
-        next: (res) => {
-          console.log("order route worked: " + res.order_id)
-          this.orders.push(res)
-          this.cartService.getUserSpecificCartDetailsRoute(this.user_id).subscribe(cart_items => {
-            for (const cartItem of this.cart_items) {
-              // Call moveCartToPending for each item
-              this.cartService.moveCartToOrders(this.user_id_num, res.order_id, cartItem.name, cartItem.price, cartItem.item_id).subscribe(orders => {
-                console.log("moved to orders succesfully: " + res.order_id);
-                  // Optionally, update the UI or do any additional processing
-                  // this.cartService.deleteCartRoute(id).subscribe(() => {
-                this.order_details.push(orders)
+        this.user_id_num = this.user_id !== null ? parseInt(this.user_id, 10) : 0; // Assuming default value of 0 if user_id is null
+        this.cartService.addOrderRoute(this.user_id_num, this.cart.total_price).subscribe({
+          next: (res) => {
+            console.log("order route worked: " + res.order_id)
+            this.orders.push(res)
+            this.cartService.getUserSpecificCartDetailsRoute(this.user_id).subscribe(cart_items => {
+              for (const cartItem of this.cart_items) {
+                // Call moveCartToPending for each item
+                this.cartService.moveCartToOrders(this.user_id_num, res.order_id, cartItem.name, cartItem.price, cartItem.item_id).subscribe(orders => {
+                  console.log("moved to orders succesfully: " + res.order_id);
+                    // Optionally, update the UI or do any additional processing
+                    // this.cartService.deleteCartRoute(id).subscribe(() => {
+                  this.order_details.push(orders)
 
-                },
-                error => {
-                  console.error(`Failed to move cart details to orders: `, error);
-                  // Optionally, handle the error or provide user feedback
-                }
-              );
-            }
-            this.cartService.deleteAllUserCartRoute(this.user_id).subscribe(() => {
-              this.cartService.updateCartByIdRoute(this.user_id, 0, 0).subscribe(() => {
-                this.cart_items = [];
-                this.cart.total_price = 0;
-                this.cart.quantity = 0;
+                  },
+                  error => {
+                    console.error(`Failed to move cart details to orders: `, error);
+                    // Optionally, handle the error or provide user feedback
+                  }
+                );
+              }
+              this.cartService.deleteAllUserCartRoute(this.user_id).subscribe(() => {
+                this.cartService.updateCartByIdRoute(this.user_id, 0, 0).subscribe(() => {
+                  this.cart_items = [];
+                  this.cart.total_price = 0;
+                  this.cart.quantity = 0;
+                })
               })
-            })
-          });
-        },
-        error: (err) => {
-          console.error('Error adding restaurant: ', err);
-        }
-      });
+            });
+          },
+          error: (err) => {
+            console.error('Error adding restaurant: ', err);
+          }
+        });
+      }
+      else {
+        // console.error('not enough funds')
+        alert("Not enough funds!")
+      } 
     }
     else {
-      console.error('not enough funds')
-  } 
+      alert("Cannot checkout unless you have something in cart!")
+    }
   }
-
 }
+
+
