@@ -1,20 +1,28 @@
 header{
-    background: rgb(135, 13, 13);
+    background: rgb(255, 251, 251);
     padding: 0;
-    border-bottom: 1px solid rgb(135, 13, 13);
+    border-bottom: 3px solid rgb(236, 161, 161);
     position: fixed;
     z-index: 1000;
     width: 100%;
 }
 
 a{
-    color: white
+    color: rgb(24, 24, 23)
+}
+
+.logo{
+    margin-top: 17px;
+    margin-left: -900px;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 a:hover{
-    background: pink;
-    color: rgb(186, 7, 7);
+    color: rgba(219, 87, 87, 0.999);
 }
+
+
 
 .container{
     margin: 0 auto;
@@ -24,8 +32,7 @@ a:hover{
 
 a.logo{
     font-weight: bold;
-    padding: 1em;
-    color: white;
+    color: black;
     font-size: large;
 }
 
@@ -37,4 +44,10 @@ nav ul{
 nav ul li a {
     padding: 1em;
     display: inline-block;
+}
+
+img.logo-image {
+    height: 45px; 
+    margin-right: 20px; 
+    margin-top: 12px; 
 }

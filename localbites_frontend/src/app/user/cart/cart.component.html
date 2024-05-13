@@ -1,39 +1,49 @@
 <app-header></app-header>
 <!-- <h2>something</h2> -->
 <div class="container">
-    <li *ngIf="user">
-        <h2>Wallet: ${{ user.wallet }}</h2>
-    </li>
-    <li *ngIf="cart">
-        <h2>Total Cart Quantity: {{ cart.quantity}}</h2>
-        <h2>Total Cart Price: ${{ cart.total_price}}</h2>
-    </li>
-    <li *ngFor="let item of cart_items">
-        {{ item.name }} - ${{ item.price }} <button (click)="onDeleteClicked(item.cart_item_id)" class="dlt-frm-crt">Remove from Cart</button>
-    </li>
-    <button (click)="moveToPendingOrder()" class="Checkout">Checkout</button>
-    <h2>Pending Orders</h2>
-    <li *ngFor="let order of orders">
-        <h4>Total Price for order #{{ order.order_id }}: ${{ order.total_price}}</h4>
-        <ul>
-            <ng-container *ngFor="let order_detail of order_details">
-                <li *ngIf="order_detail.order_id === order.order_id">
-                    {{ order_detail.name }} - {{ order_detail.price }}
-                </li>
-            </ng-container>
-        </ul>
-    </li>
-    <h2>Order History</h2>
-    <li *ngFor="let orderHistory of orderHistories">
-        <h4>Total Price for order#{{ orderHistory.order_id }}: ${{ orderHistory.total_price }}</h4>
-        <ul>
-            <ng-container *ngFor="let order_history_detail of order_history_details">
-                <li *ngIf="order_history_detail.order_id === orderHistory.order_id">
-                    {{ order_history_detail.name }} - {{ order_history_detail.price }}
-                </li>
-            </ng-container>
-        </ul>
-    </li>
+    <div class="header">
+        <li *ngIf="user">
+            <h2>Wallet: ${{ user.wallet }}</h2>
+        </li>
+        <li *ngIf="cart">
+            <h2>Total Cart Quantity: {{ cart.quantity}}</h2>
+            <h2>Total Cart Price: ${{ cart.total_price}}</h2>
+        </li>
+        <li *ngFor="let item of cart_items">
+            {{ item.name }} - ${{ item.price }} <button (click)="onDeleteClicked(item.cart_item_id)" class="dlt-frm-crt">Remove from Cart</button>
+        </li>
+        <button (click)="moveToPendingOrder()" class="Checkout">Checkout</button>
+    </div>
+    <div class="lists-container">
+        <div class="pending-orders">
+            <h2>Pending Orders</h2>
+            <li *ngFor="let order of orders">
+                <h4>Total Price for order #{{ order.order_id }}: ${{ order.total_price}}</h4>
+                <ul>
+                    <ng-container *ngFor="let order_detail of order_details">
+                        <li *ngIf="order_detail.order_id === order.order_id">
+                            {{ order_detail.name }} - {{ order_detail.price }}
+                        </li>
+                    </ng-container>
+                </ul>
+            </li>
+        </div>
+        <div class="order-history">
+            <h2>Order History</h2>
+            <li *ngFor="let orderHistory of orderHistories">
+                <h4>Total Price for order#{{ orderHistory.order_id }}: ${{ orderHistory.total_price }}</h4>
+                <ul>
+                    <ng-container *ngFor="let order_history_detail of order_history_details">
+                        <li *ngIf="order_history_detail.order_id === orderHistory.order_id">
+                            {{ order_history_detail.name }} - {{ order_history_detail.price }}
+                        </li>
+                    </ng-container>
+                </ul>
+            </li>
+        </div>
+    </div>
+   
+    
 
 
     <!-- <h2>Order History</h2> -->

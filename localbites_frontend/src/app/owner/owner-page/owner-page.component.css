@@ -7,12 +7,12 @@
     align-items: center;
     flex-wrap: wrap;
     list-style-type: none;
-    background-image: url('../../../assets/images/Decoration/ownerbackground.jpg');
     background-size: cover;
-}
+    min-height: 100vh; /* Ensure it covers at least the full height of the viewport */
+    background-color: rgba(239, 211, 184, 0.845);}
 
 .owner-head {
-    background-color: #1F456E; /* Sky blue background color */
+    background-color: #ed7c2c9b; 
     padding: 10px; /* Optional: Add padding to increase spacing around the text */
     color: white;
     border-radius: 10px;
@@ -21,12 +21,11 @@
 li a{
     height: 8rem;
     width: 50rem;
-    border: 1px solid lightgray;
     border-radius: 1rem;
     margin: 0.5rem;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow:hidden;
     color: black;
     position: relative;
 }
@@ -49,7 +48,7 @@ li a{
     bottom: 20px;
     right: 20px;
     padding: 15px 30px;
-    background-color: #1F456E;
+    background-color: #1e9de1;
     color: white;
     border: none;
     border-radius: 5px;
@@ -84,7 +83,7 @@ li a{
     width: 100%;
     text-align: center;
     font-size: 0.8rem;
-    background-color: #1F456E;
+    background-color: #78716ce1;
     border-radius: 0 0 1rem 1rem;
     padding: 0.5rem;
     color: white;
@@ -107,7 +106,7 @@ li a{
 .update-btn {
     border-radius: 0.8rem;
     color: white;
-    background-color: #1F456E;
+    background-color: #267ebd;
     cursor: pointer;
     position: absolute;
     right: 0.8rem;
@@ -120,7 +119,7 @@ li a{
 .dlt-btn {
     border-radius: 0.8rem;
     color: white;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.856);
     cursor: pointer;
     position: absolute;
     right: 0.8rem;

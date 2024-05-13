@@ -1,3 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+
+
+<body ng-app="">
+<div class="parent"> 
+    <div class="container"  id="container">
+        <div class="form-container sign-up" >
+            </div>
+            <div class="form-container sign-in">
+                <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" >
+                    <h1>Log In</h1>
+                    
+                    <input type="email" name="email" placeholder="Email" formControlName="email" required>
+                    <input type="password" name="password"   placeholder="Password" formControlName="password" required>
+                    <button (click)="onSubmit()">Login</button>
+                    <div *ngIf="errorMessage" class="error-message">
+                        {{ errorMessage }}
+                      </div>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-right">
+                        <h1>New user?</h1>
+                        <p>Register your Business to get started!</p>
+                        <button (click)="goToSignUpPage()" type="button" class="hidden" id="register">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
 <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
 
     <div>

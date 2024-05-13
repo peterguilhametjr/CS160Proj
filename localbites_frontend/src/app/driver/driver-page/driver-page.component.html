@@ -1,12 +1,16 @@
 <app-driver-taskbar></app-driver-taskbar>
 <div class="container">
-    <li *ngFor="let order of orders">
-        userid: {{ order.user_id }}
-        orderid: {{ order.order_id }}
-    </li>
+    <h2>Orders to Complete</h2>
+    <ul class="order-list">
+        <li *ngFor="let order of orders">
+            userid: {{ order.user_id }}
+            orderid: {{ order.order_id }}
+        </li>
+    </ul>
+
     <input type="number" [(ngModel)]="orderToComplete" placeholder="Enter order id that you want to complete...">
 
     <!-- Submit button to add funds to the wallet -->
-    <button (click)="completeOrder()">Complete Order</button>
+    <button class="complete-order-btn" (click)="completeOrder()">Complete Order</button>
 
 </div>

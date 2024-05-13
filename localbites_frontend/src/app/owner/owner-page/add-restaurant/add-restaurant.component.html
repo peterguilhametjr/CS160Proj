@@ -1,5 +1,6 @@
 <app-owner-task-bar></app-owner-task-bar>
 
+<body>
 <div class="container">
     <h2 class="restaurant-reg">Please Enter the Following Information</h2>
     <form (ngSubmit)="onSubmit()" [formGroup]="restaurantForm">
@@ -18,6 +19,7 @@
         <label for="zip_code">zip_code:</label>
         <input type="text" id="zip_code" formControlName="zip_code"><br><br>
 
-        <button type="submit">Register</button>   
+        <button type="onSubmit()">Register</button>   
     </form>
 </div>
+</body>

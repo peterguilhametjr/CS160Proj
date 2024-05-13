@@ -1,12 +1,13 @@
 <app-header></app-header>
+<body>
+    <div class="container">
+        <div class="wallet-wrapper">
+            <img src="../../assets/images/Decoration/wallet.png" alt="Wallet Icon" class="wallet-icon"> <!-- Wallet Icon -->
+            <p>Wallet Amount: ${{ user_wallet }}</p> 
 
-<div class="container">
-    <p>Wallet Amount: ${{ user_wallet }}</p> <!-- Display the user's wallet amount -->
+            <input type="number" [(ngModel)]="amountToAdd" placeholder="Enter amount" class="wallet-input">
 
-    <!-- Input field for entering the amount to add to the wallet -->
-    <input type="number" [(ngModel)]="amountToAdd" placeholder="Enter amount">
-
-    <!-- Submit button to add funds to the wallet -->
-    <button (click)="addToWallet()">Add Funds</button>
-</div>
-
+            <button (click)="addToWallet()" class="wallet-button">Add Funds</button>
+        </div>
+    </div>
+</body>

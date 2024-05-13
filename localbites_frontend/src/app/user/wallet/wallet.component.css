@@ -1,3 +1,60 @@
+body {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    /* background-image: url("/assets/images/Decoration/money.jpeg"); */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 .container {
-    padding-top: 80px;
+    width: 100%;
+    max-width: 600px; 
+    padding: 80px; 
+    border-radius: 8px;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+
+.wallet-icon {
+    width: 50px; 
+    height: auto;
+    margin-bottom: 20px; 
+}
+
+.wallet-input {
+    width: calc(100% - 40px); 
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.wallet-button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.wallet-button:hover {
+    background-color: #367c39;
+}
+
+.wallet-icon {
+    width: 190px; 
+    height: auto;
+    margin-bottom: 20px; 
 }

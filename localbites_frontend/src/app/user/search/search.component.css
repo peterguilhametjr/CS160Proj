@@ -1,85 +1,114 @@
-.container{
+.search-page {
+    /* display: flex;
+    flex-direction: column; 
+    align-items: center;  */
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+  } 
+
+
+
+  .search-bars {
     padding-top: 80px;
-}
-
-
-ul{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Add some space between the input fields and buttons */
 }
 
-li a{
-    height: 20rem;
-    width: 20rem;
-    border: 1px solid lightgray;
-    border-radius: 1rem;
-    margin: 0.5rem;
+
+.search-bars input[type="text"]{
+    padding: 10px;
+    width: 300px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bars button {
+    padding: 8px 12px;
+    height: 50px;
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+  
+  .whole-page{
+    min-height: 100vh; /* Ensure it covers at least the full height of the viewport */
+    background-color: whitesmoke;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  ul { 
+    width: 100%; 
+    padding: 0; 
+    display: flex; 
+    flex-wrap: wrap; 
+    list-style-type: none; 
+  } 
+  
+  
+  .restaurants { 
+    background: rgb(232, 244, 218); 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    color: darkgreen;
-}
-
-li a:hover{
-    opacity: 0.9;
-    cursor: pointer;
-}
-
-img {
-    width: 325px;
-    height: 200px;
-}
-
-.whole-page {
-    background-color: #c9d6ff;
-    background-image: url("/assets/images/Decoration/loginback.jpeg");
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; */
-    height: 100vh;
-}
-
-.restaurants {
-    background-color: white;
-}
-
-
-
-.recommend {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.content{
-    text-align: left;
-    margin-bottom: 20px;
-    position: relative;
-    left: 1rem;
-    top: 0.7rem;
-}
-
-.name{
-    font-weight: bold;
-}
-
-.favorite{
-    position: absolute;
-    top: 0rem;
-    right: 2rem;
-    font-size: 1.2rem;
-}
-
-.favorite.not{
-    color: white;
-}
-
-.footer{
-    position: absolute;
-    font-size: 0.8rem;
-    top: 3rem;
-}
+    width: calc(25% - 60px);
+    margin: 30px;
+    transition: transform 0.6s ease;
+  
+  }
+  
+  
+  .restaurants:hover {
+      transform: translateY(-8px);
+  }
+  
+  .restaurants img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+  }
+  
+  .content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+  }
+  
+  .name{
+    font-style: bold;
+    margin-bottom: 13px;
+  }
+  
+  .search-page .content .name{
+    font-size: 21px;
+    font-weight: 900;
+    color: rgba(21, 19, 19, 0.791);
+  }
+  
+  
+  .content{
+    color:rgba(6, 6, 6, 0.519);
+    padding-right: 10px;
+    padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      color: darkslategray; 
+      padding-right: 10px; /* Right padding for content inside the card */
+      align-items: flex-start;
+  
+  }
+  
+  

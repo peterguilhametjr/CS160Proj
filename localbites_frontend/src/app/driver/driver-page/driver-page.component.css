@@ -1,3 +1,55 @@
 .container {
     padding-top: 80px;
+    text-align: center; /* Center content */
+}
+
+h2 {
+    color: darkred;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.order-list {
+    border: 1px solid lightgrey; /* Light grey border around the order-list */
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px auto; /* Center the order-list */
+    width: 30%; /* Adjust the width */
+}
+
+
+.order-list li {
+    list-style-type: none; /* Remove bullet points */
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.order-info {
+    margin-right: 10px;
+}
+
+input[type="number"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 400px; /* Adjust the width */
+    height: 40px; /* Adjust the height */
+}
+
+
+.complete-order-btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.complete-order-btn:hover {
+    background-color: darkred;
 }

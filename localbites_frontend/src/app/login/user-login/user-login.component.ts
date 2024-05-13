@@ -132,6 +132,10 @@ export class UserLoginComponent {
         alert("Please fill out all fields correctly.")
       }
     }
+
+    goToSignUpPage(): void {
+      this.router.navigate(['userSignup']);
+    }
     
 
   }

@@ -55,5 +55,8 @@ export class RestaurantLoginComponent {
       }
     }
     
+    goToSignUpPage(): void {
+      this.router.navigate(['restaurantSignup']);
+    }
 
   }

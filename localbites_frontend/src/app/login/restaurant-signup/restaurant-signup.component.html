@@ -1,16 +1,34 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" formControlName="name" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="restaurant-signup.component.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="">
+    <div class="parent">
+        <div class="container" id="container">
+            <div class="form-container">
+                <form class="row g-3 needs-validation" (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+                    <h1>Create a Business Account</h1>
+                    <input type="text" name="name" placeholder="Name" formControlName="name" required>
+                    <input type="email" name="email" placeholder="Email" formControlName="email" required>
+                    <input type="password" name="password" placeholder="Password" formControlName="password" required>
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-right">
+                        <h1>Welcome Back!</h1>
+                        <p>Use an existing account to log in</p>
+                        <button (click)="goToLoginPage()"  type="button" class="hidden" id="login">Log In</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" formControlName="email" required>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" formControlName="password" required>
-    </div>
-    <button type="submit">signup</button>   
-</form>
-<button (click)="goToLoginPage()">login</button>
+</body>
+</html>
+
+

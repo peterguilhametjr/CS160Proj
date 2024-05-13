@@ -1,28 +1,22 @@
 <app-header></app-header>
 <div class="container" *ngIf="restaurant">
+    <!-- Restaurant Image and Name -->
     <div class="image" [style.backgroundImage]="'url(' + restaurant.imageURL + ')'"></div>
     <div class="details">
         <div class="header">
-            <span class="name">
-                {{ restaurant.name }}
-            </span>
+            <span class="name">{{ restaurant.name }}</span>
         </div>
     </div>
 
-    <!-- Items Listing -->
-
-    <!-- <div class="menu" *ngFor="let item of restaurant?.items">
-        <p>Item Name: {{ item.name }}</p>
-        <p>Item Price: {{ item.price }}</p>
-    </div> -->
-</div>
-
-<div class="menu" *ngIf="restaurant">
-    <div *ngIf="restaurant.items && restaurant.items.length > 0">
+    <!-- Menu Items Section -->
+    <div class="menu" *ngIf="restaurant.items && restaurant.items.length > 0">
         <h3>Menu Items</h3>
-        <ul>
-            <li *ngFor="let item of restaurant.items">
-                {{ item.name }} - ${{ item.price }} <button (click)="addToCart(item.item_id, item.name, item.price)" class="add-to-crt">Add to Cart</button>
+        <ul class="card-container">
+            <li *ngFor="let item of restaurant.items" class="card">
+                <div class="card-content">
+                    <p class="item-name">{{ item.name }} - ${{ item.price }}</p>
+                    <button (click)="addToCart(item.item_id, item.name, item.price)" class="add-to-cart">Add to Cart</button>
+                </div>
             </li>
         </ul>
     </div>
